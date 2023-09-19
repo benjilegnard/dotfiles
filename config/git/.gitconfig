@@ -3,14 +3,19 @@
         email = benjilegnard@protonmail.com
 [core]
         editor = vim
+        autocrlf = input
 [init]
         defaultBranch = main
 [pull]
         rebase = true
 [push]
+        default = current
         autoSetupRemote = true
 [rebase]
         autoStash = true
+        autoSquash = true
+[status]
+        showUntrackedFiles = all
 [alias]
         co = checkout
         ci = commit
