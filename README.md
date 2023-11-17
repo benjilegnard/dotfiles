@@ -4,10 +4,12 @@ This repository holds my dotfiles configuration and ansible playbook config to i
 
 Also the main goal is to version my config files and centralize my favorite tools. Expect frequent changes.
 
+> WARNING: I DECLINE ALL RESPONSABILITY IF YOU USE THIS ON YOUR SYSTEM AND FUCK UP YOUR COMPUTER
+
 ## Quick setup
 
 1. Install a debian-based linux distribution, prefer a server version, without a desktop environment
-2. Install ansible, git and sudo : 
+2. Install ansible, git, gpg and sudo : 
 ```
 su -
 apt-get update && apt-get install -y ansible git sudo gpg
@@ -15,7 +17,7 @@ adduser <your_username> sudo
 ```
 3. Run tasks from this repository with ansible
 ```
-sudo ansible-pull -U https://github.com/benjilegnard/dotfiles.git
+ansible-pull --ask-become-pass -U https://github.com/benjilegnard/dotfiles.git
 ```
 
 ## What's inside
@@ -27,15 +29,24 @@ A desktop environment with:
 - [waybar](https://github.com/Alexays/Waybar#waybar--) for a "taskbar"
 - [fuzzel](https://codeberg.org/dnkl/fuzzel#fuzzel) for launching apps
 
+// TODO
+
 The following applications:
-- [firefox]
-- [chrome]
-- [vscode]
-- [neovim]
-- [gimp]
-- [fonts]
-- [rhythmbox]
+- [ ] firefox
+- [ ] chrome
+- [ ] vscode
+- [ ] neovim
+- [ ] gimp
+- [ ] fonts
+- [ ] rhythmbox
 
-With the catppuccin theme applied in mocha flavor :
+With the catppuccin theme applied in mocha flavor for the following :
 
-- 
+- [x] grub
+- [ ] tty (not finished)
+- [x] sddm
+- [x] sway
+- [x] swaync
+- [x] fuzzel
+- [ ] foot
+- [ ] zsh
