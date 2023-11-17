@@ -6,8 +6,8 @@
     "spacing": 10, // Gaps between modules (4px)
     "margin": "10 10 0 10",
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "sway/window"],
-    "modules-center": ["clock"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "sway/window"],
+    "modules-center": [ "custom/media","clock"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "sway/language", "battery", "tray"],
     // Modules configuration
     // "sway/workspaces": {
@@ -46,32 +46,6 @@
         "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -157,15 +131,21 @@
     },
     "custom/media": {
         "format": "{icon} {}",
-        "return-type": "json",
+        "return-type": "string",
         "max-length": 40,
         "format-icons": {
             "spotify": "",
             "default": "🎜"
         },
+        "interval": 5,
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "exec-if": "rhythmbox-client --check-running",
+        "exec": "rhythmbox-client --print-playing",
+        "on-click": "rhythmbox-client --play-pause",
+        "on-scroll-up": "rhythmbox-client --volume-up",
+        "on-scroll-down": "rhythmbox-client --volume-down",
+        "on-click-right": "rhythmbox-client --next",
+        "on-click-middle": "rhythmbox-client --quit"
     }
 }
 
