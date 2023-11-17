@@ -1,9 +1,181 @@
 # here are all the customization for catppuccin themes
 # we checkout the different themes from github organizations:
 
-- name: Clone a github repository
+#
+# GRUB
+#
+- name: Clone catppuccin/grub
   git:
-    repo: https://github.com/sqlite/sqlite.git
-    dest: /home/benjilegnard/repos/
+    repo: https://github.com/catppuccin/grub.git
+    dest: ./theme/catppuccin/grub
+    accept_hostkey: yes
     clone: yes
     update: yes
+    depth: 1
+
+- name: Copy theme files for grub
+  become: true
+  copy:
+    src: ./theme/catppuccin/grub/src/catppuccin-mocha-grub-theme
+    dest: /usr/share/grub/themes
+
+- name: Check if theme is configured in the boot command
+  lineinfile:
+    backup: true
+    path: /etc/default/grub
+    regexp: '^GRUB_THEME=".*'
+    state: absent
+  check_mode: true
+  register: grub_theme_check
+  changed_when: false
+
+- name: Enable the theme in grub default configuration
+  become: true
+  lineinfile:
+    path: /etc/default/grub
+    line: GRUB_THEME="/usr/share/grub/themes/catppuccin-mocha-grub-theme/theme.txt"
+    create: true
+  when: grub_theme_check.found == 0
+
+- name: Update grub if theme was added
+  become: true
+  shell: grub-mkconfig -o /boot/grub/grub.cfg
+  when: grub_theme_check.found == 0
+
+# todo; maybe also check and set GRUB_GFXMODE=1920x1080
+
+#
+# TTY : https://github.com/catppuccin/tty
+#
+- name: Clone catppuccin/tty
+  git:
+    repo: https://github.com/catppuccin/tty.git
+    dest: ./theme/catppuccin/tty
+    clone: yes
+    update: yes
+    depth: 1
+
+- name: Check if tty theme is configured in the boot command
+  lineinfile:
+    backup: true
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX=".*vt'
+    state: absent
+  check_mode: true
+  register: grub_tty_check
+  changed_when: false
+
+- name: Generate mocha theme
+  shell:
+    chdir: ./theme/catppuccin/tty
+    cmd: ./generate.sh mocha
+  register: tty_theme
+  when: grub_tty_check.found == 0
+
+# FIXME; this does not work when config exists
+- name: Configure tty theme in CRUB_CMDLINE_LINUX options 
+  become: true
+  lineinfile:
+    dest: /etc/default/grub
+    backrefs: yes
+    regexp: "^(GRUB_CMDLINE_LINUX=\".*)\"$"
+    line: '\1 {{ tty_theme.stdout }}\2'
+  when: grub_tty_check.found == 0
+
+- name: Update grub if tty config was added
+  become: true
+  shell: grub-mkconfig -o /boot/grub/grub.cfg
+  when: grub_tty_check.found == 0
+
+#
+# SDDM : https://github.com/catppuccin/sddm
+#
+- name: Clone catppuccin/sddm
+  git:
+    repo: https://github.com/catppuccin/sddm.git
+    dest: ./theme/catppuccin/sddm
+    clone: yes
+    update: yes
+    depth: 1
+
+- name: Copy theme files for sddm
+  become: true
+  copy:
+    src: ./theme/catppuccin/sddm/src/catppuccin-mocha
+    dest: /usr/share/sddm/themes
+
+- name: Checks if sddm config file exists
+  stat:
+    path: /etc/sddm.conf
+  register: sddm_conf
+
+- name: Create ssmd.conf file if not exists
+  become: true
+  shell: touch /etc/sddm.conf
+  when: not sddm_conf.stat.exists
+
+- name: Checks if theme config exists for sddm
+  lineinfile:
+    backup: true
+    path: /etc/sddm.conf
+    regexp: '^Current=catppuccin-mocha.*'
+    state: absent
+  check_mode: true
+  register: sddm_theme_check
+  changed_when: false
+
+- name: Enable the theme in sddm configuration
+  become: true
+  lineinfile:
+    path: /etc/sddm.conf
+    line: "{{ item }}"
+    create: true
+  loop:
+    - "[Theme]"
+    - "Current=catppuccin-mocha"
+  when: sddm_theme_check.found == 0
+
+#
+# Waybar https://github.com/catppuccin/waybar
+#
+- name: Clone catppuccin/waybar
+  git:
+    repo: https://github.com/catppuccin/waybar.git
+    dest: ./theme/catppuccin/waybar
+    clone: yes
+    update: yes
+    depth: 1
+
+- name: Ensure waybar config directory exists
+  file:
+    path: "{{ ansible_env.HOME }}/.config/waybar"
+    recurse: true
+    state: directory
+
+- name: Copy mocha theme files for waybar
+  copy:
+    src: ./theme/catppuccin/waybar/themes/mocha.css
+    dest: "{{ ansible_env.HOME }}/.config/waybar"
+
+#
+# Foot ( TODO ) https://github.com/catppuccin/foot
+#
+- name: Clone catppuccin/foot
+  git:
+    repo: https://github.com/catppuccin/foot.git
+    dest: ./theme/catppuccin/foot
+    clone: yes
+    update: yes
+    depth: 1
+
+#
+# GTK ( TODO ) https://github.com/catppuccin/gtk
+#
+- name: Clone catppuccin/gtk
+  git:
+    repo: https://github.com/catppuccin/gtk.git
+    dest: ./theme/catppuccin/gtk
+    clone: yes
+    update: yes
+    depth: 1
+
