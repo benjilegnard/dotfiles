@@ -5,11 +5,19 @@
   ansible.builtin.apt:
     name:
       - sway
+    install_recommends: false
+    default_release: experimental
+
+- name: Install sway and wayland related packages
+  become: true
+  ansible.builtin.apt:
+    name:
       - grimshot
       - slurp
       - sway-notification-center
       - swayidle
       - swaylock
+      - sway-backgrounds
       - waybar
       - wayland-protocols
       - wdisplays
