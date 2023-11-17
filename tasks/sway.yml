@@ -12,35 +12,33 @@
   loop_control:
     loop_var: key_item
 
-# add the repository to the host.
 - name: Add Debian experimental repository for latest Sway and Wlroots versions
   become: yes
   apt_repository:
     repo: deb http://httpredir.debian.org/debian experimental main
     state: present
 
-#
 - name: Install sway and wayland related packages
   become: yes
   apt:
     name:
+      - sway
       - grimshot
       - slurp
-      - sway
       - sway-notification-center
       - swayidle
       - swaylock
       - waybar
-      - qt6-wayland
+      - wayland-protocols
       - wdisplays
       - wf-recorder
       - wl-clipboard
-      # - wl-mirror
       - xdg-desktop-portal-wlr
       - sddm
       - fuzzel
       - zenity
     install_recommends: false
+    # default_release: experimental
     state: present
 
 - name: Ensure config directories exists
