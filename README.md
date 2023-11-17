@@ -7,9 +7,11 @@ Also the main goal is to version my config files and centralize my favorite tool
 ## Quick setup
 
 1. Install a debian-based linux distribution, prefer a server version, without a desktop environment
-2. Install ansible : 
+2. Install ansible, git and sudo : 
 ```
-sudo apt-get update && sudo apt-get install -y ansible
+su -
+apt-get update && apt-get install -y ansible git sudo gpg
+adduser <your_username> sudo
 ```
 3. Run tasks from this repository with ansible
 ```
