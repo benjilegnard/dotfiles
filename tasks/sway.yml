@@ -28,7 +28,7 @@
     - swayidle
     - swaylock
     - waybar
-    - wayland
+    - qt6-wayland
     - wdisplays
     - wf-recorder
     - wl-clipboard
