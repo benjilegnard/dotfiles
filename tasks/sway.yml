@@ -19,9 +19,8 @@
 
 # 
 - name: Install sway and wayland related packages
-  apt: name="{{item}}"
-  become: true
-  with_items:
+  apt:
+    pkg:
     - grimshot
     - slurp
     - sway
