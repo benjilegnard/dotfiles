@@ -40,6 +40,7 @@
       - sddm
       - fuzzel
       - zenity
+    install_recommends: false
     state: present
 
 - name: Ensure config directories exists
