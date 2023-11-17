@@ -15,3 +15,25 @@ sudo apt-get update && sudo apt-get install -y ansible
 ```
 sudo ansible-pull -U https://github.com/benjilegnard/dotfiles.git
 ```
+
+## What's inside
+
+A desktop environment with:
+- [swaywm]
+- [swaylock]
+- [swaync] 
+- [waybar] for configuration
+
+The following applications:
+- [firefox]
+- [chrome]
+- [vscode]
+- [neovim]
+- [gimp]
+- [fonts]
+- [rhythmbox]
+- []
+
+With the catppuccin theme applied in mocha flavor :
+
+- 
