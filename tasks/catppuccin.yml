@@ -148,14 +148,20 @@
 
 - name: Ensure waybar config directory exists
   file:
-    path: "{{ ansible_env.HOME }}/.config/waybar"
+    path: "/home/{{ user }}/.config/waybar"
     recurse: true
     state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
 
 - name: Copy mocha theme files for waybar
   copy:
     src: ./theme/catppuccin/waybar/themes/mocha.css
-    dest: "{{ ansible_env.HOME }}/.config/waybar"
+    dest: "/home/{{ user }}/.config/waybar"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
 
 #
 # Foot ( TODO ) https://github.com/catppuccin/foot
@@ -167,6 +173,20 @@
     clone: yes
     update: yes
     depth: 1
+
+- name: Ensure foot config directory exists
+  file:
+    path: "/home/{{ user }}/.config/foot"
+    recurse: true
+    state: directory
+
+- name: Copy configuration file for foot
+  copy:
+    src: ./theme/catppuccin/foot/catppuccin-mocha.conf
+    dest: "/home/{{ user }}/.config/foot/foot.ini"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
 
 #
 # GTK ( TODO ) https://github.com/catppuccin/gtk

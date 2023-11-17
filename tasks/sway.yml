@@ -43,11 +43,11 @@
 
 - name: Ensure config directories exists
   file:
-    path: "{{ ansible_env.HOME }}/.config/{{ item }}/"
+    path: "/home/{{ user }}/.config/{{ item }}/"
     recurse: true
     state: directory
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_env.USER }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: "755"
   loop:
     - fuzzel
@@ -59,35 +59,36 @@
 - name: Copy configuration file for fuzzel
   copy:
     src: ./config/fuzzel/fuzzel.ini
-    dest: "{{ ansible_env.HOME }}/.config/fuzzel/"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_env.USER }}"
+    dest: "/home/{{ user }}/.config/fuzzel/"
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: "755"
 
 - name: Copy configuration file for sway
   copy:
     src: ./config/sway/config
-    dest: "{{ ansible_env.HOME }}/.config/sway/"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_env.USER }}"
+    dest: "/home/{{ user }}/.config/sway/"
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: "755"
 
 - name: Copy configuration file for swaylock
   copy:
     src: ./config/swaylock/config
-    dest: "{{ ansible_env.HOME }}/.config/swaylock/"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_env.USER }}"
+    dest: "/home/{{ user }}/.config/swaylock/"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
 
 - name: Copy configuration file for sway notification center
   copy:
     src: ./config/swaync/style.css
-    dest: "{{ ansible_env.HOME }}/.config/swaync/"
+    dest: "/home/{{ user }}/.config/swaync/"
 
 - name: Copy config files for waybar
   copy:
     src: "./config/waybar/{{ item }}"
-    dest: "{{ ansible_env.HOME }}/.config/waybar/"
+    dest: "/home/{{ user }}/.config/waybar/"
   loop:
     - style.css
     - config
