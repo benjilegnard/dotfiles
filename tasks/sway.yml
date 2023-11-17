@@ -44,14 +44,14 @@
 
 - name: Ensure config directory exists
   file:
-    path: /home/benjilegnard/.config/sway/config
+    path: "{{ ansible_env.HOME }}/.config/sway"
     recurse: true
     state: directory
 
 - name: Copy configuration file for sway
   copy:
     src: ./config/sway/config
-    dest: /home/benjilegnard/.config/sway/config
-    owner: benjilegnard
-    group: benjilegnard
+    dest: "{{ ansible_env.HOME }}/.config/sway"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.HOME }}"
 # todo: wl-imirror
