@@ -1,23 +1,5 @@
 # Sway, a tiling manager. Here we install all things related to the sway and wayland desktop environment.
 
-# Debian experimental has more recent versions of sway than ubuntu, so we add it
-- name: Add apt keys for debian repositories
-  become: yes
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: "{{ key_item }}"
-  with_items:
-    - "04EE7237B7D453EC"
-    - "648ACFD622F3D138"
-  loop_control:
-    loop_var: key_item
-
-- name: Add Debian experimental repository for latest Sway and Wlroots versions
-  become: yes
-  apt_repository:
-    repo: deb http://httpredir.debian.org/debian experimental main
-    state: present
-
 - name: Install sway and wayland related packages
   become: yes
   apt:
