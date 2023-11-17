@@ -45,10 +45,11 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
-    loop:
-      - config
-      - style.css
-      - wofi-emoji
+  loop:
+    - config
+    - style.css
+    - wofi-emoji
+
 - name: Copy configuration file for sway
   copy:
     src: ./config/sway/config
