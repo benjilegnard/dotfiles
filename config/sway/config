@@ -7,16 +7,16 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set "$mod" Mod4
+set $mod Mod4
 # Home row direction keys, like vim
-set "$left" h
-set "$down" j
-set "$up" k
-set "$right" l
+set $left h
+set $down j
+set $up k
+set $right l
 # Your preferred terminal emulator
-set "$term" foot
-set "$browser" firefox
-set "$ide" code
+set $term foot
+set $browser firefox
+set $ide code
 
 ### Launchers
 
@@ -32,7 +32,7 @@ exec blueman-applet
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # set $menu rofi -show drun | xargs swaymsg exec --
-set "$menu" fuzzel | xargs swaymsg exec --
+set $menu fuzzel | xargs swaymsg exec --
 include /etc/sway/config-vars.d/*
 
 exec gnome-keyring-daemon --start
