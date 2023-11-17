@@ -42,16 +42,48 @@
       - zenity
     state: present
 
-- name: Ensure config directory exists
+- name: Ensure config directories exists
   file:
-    path: "{{ ansible_env.HOME }}/.config/sway"
+    path: "{{ ansible_env.HOME }}/.config/{{ item }}"
     recurse: true
     state: directory
+  loop:
+    - fuzzel
+    - sway
+    - swaylock
+    - swaync
+    - waybar
+
+- name: Copy configuration file for fuzzel
+  copy:
+    src: ./config/fuzzel/fuzzel.ini
+    dest: "{{ ansible_env.HOME }}/.config/fuzzel"
 
 - name: Copy configuration file for sway
   copy:
     src: ./config/sway/config
     dest: "{{ ansible_env.HOME }}/.config/sway"
     owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_env.HOME }}"
+    group: "{{ ansible_env.USER }}"
+
+- name: Copy configuration file for swaylock
+  copy:
+    src: ./config/swaylock/config
+    dest: "{{ ansible_env.HOME }}/.config/swaylock"
+
+- name: Copy configuration file for sway notification center
+  copy:
+    src: ./config/swaync/style.css
+    dest: "{{ ansible_env.HOME }}/.config/swaync"
+
+- name: Copy config theme files for waybar
+  copy:
+    src: "./theme/catppuccin/waybar/themes/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/waybar"
+  loop:
+    - style.css
+    - config
+
+
+
 # todo: wl-imirror
