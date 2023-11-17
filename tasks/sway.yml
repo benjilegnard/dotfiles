@@ -2,6 +2,7 @@
 
 # Debian experimental has more recent versions of sway than ubuntu, so we add it
 - name: Add apt keys for debian repositories
+  become: yes
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: "{{ key_item }}"
@@ -13,42 +14,44 @@
 
 # add the repository to the host.
 - name: Add Debian experimental repository for latest Sway and Wlroots versions
+  become: yes
   apt_repository:
     repo: deb http://httpredir.debian.org/debian experimental main
     state: present
 
-# 
+#
 - name: Install sway and wayland related packages
+  become: yes
   apt:
-    pkg:
-    - grimshot
-    - slurp
-    - sway
-    - sway-notification-center
-    - swayidle
-    - swaylock
-    - waybar
-    - qt6-wayland
-    - wdisplays
-    - wf-recorder
-    - wl-clipboard
-    # - wl-mirror
-    - xdg-desktop-portal-wlr
-    - sddm
-    - fuzzel
-    - zenity
+    name:
+      - grimshot
+      - slurp
+      - sway
+      - sway-notification-center
+      - swayidle
+      - swaylock
+      - waybar
+      - qt6-wayland
+      - wdisplays
+      - wf-recorder
+      - wl-clipboard
+      # - wl-mirror
+      - xdg-desktop-portal-wlr
+      - sddm
+      - fuzzel
+      - zenity
+    state: present
 
 - name: Ensure config directory exists
   file:
-    path: /etc/ansible/facts.d
+    path: /home/benjilegnard/.config/sway/config
     recurse: true
     state: directory
 
 - name: Copy configuration file for sway
-  ansible.builtin.copy:
+  copy:
     src: ./config/sway/config
     dest: /home/benjilegnard/.config/sway/config
     owner: benjilegnard
     group: benjilegnard
-
 # todo: wl-imirror
