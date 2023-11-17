@@ -27,7 +27,7 @@ A desktop environment with:
 - [swaylock](https://github.com/swaywm/swaylock#swaylock), a lock screen for sway
 - [swaync](https://github.com/ErikReider/SwayNotificationCenter#readme) for notifications
 - [waybar](https://github.com/Alexays/Waybar#waybar--) for a "taskbar"
-- [fuzzel](https://codeberg.org/dnkl/fuzzel#fuzzel) for launching apps
+- [wofi](https://hg.sr.ht/~scoopta/wofi) for launching apps
 
 // TODO
 
@@ -47,6 +47,6 @@ With the catppuccin theme applied in mocha flavor for the following :
 - [x] sddm
 - [x] sway
 - [x] swaync
-- [x] fuzzel
+- [x] wofi
 - [ ] foot
 - [ ] zsh
