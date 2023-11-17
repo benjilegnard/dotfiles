@@ -10,3 +10,4 @@
     - include_tasks: tasks/sway.yml
     # - include_tasks: tasks/devtools.yml
     # - include_tasks: tasks/apps.yml
+    - include_tasks: tasks/catppuccin.yml
