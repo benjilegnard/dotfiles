@@ -1,0 +1,10 @@
+- name: Install GUI tools
+  apt: name={{item}}
+  with_items:
+    - xournal
+    - gimp
+    - rhythmbox
+    - shotwell
+    - openscad
+    - inkscape
+    - 

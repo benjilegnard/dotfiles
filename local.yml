@@ -1,5 +1,12 @@
 - hosts: localhost
   become: true
+  pre_tasks:
+    - name: update repositories
+      apt: update_cache=yes
+      changed_when: False
   tasks:
-  - name: Install htop
-    apt: name=htop
+    # - include_tasks: tasks/term.yml
+    # - include_tasks: tasks/code.yml
+    - include_tasks: tasks/sway.yml
+    # - include_tasks: tasks/devtools.yml
+    # - include_tasks: tasks/apps.yml
