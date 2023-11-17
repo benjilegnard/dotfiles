@@ -76,9 +76,9 @@
     src: ./config/swaync/style.css
     dest: "{{ ansible_env.HOME }}/.config/swaync"
 
-- name: Copy config theme files for waybar
+- name: Copy config files for waybar
   copy:
-    src: "./theme/catppuccin/waybar/themes/{{ item }}"
+    src: "./config/waybar/{{ item }}"
     dest: "{{ ansible_env.HOME }}/.config/waybar"
   loop:
     - style.css
