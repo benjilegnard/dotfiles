@@ -9,6 +9,7 @@
       - sway-notification-center
       - swayidle
       - swaylock
+      - sway-backgrounds
       - waybar
       - wayland-protocols
       - wdisplays

@@ -1,6 +1,10 @@
 ---
 - name: Install my dotfiles and programs on an empty debian-based server
-  hosts: localhost
+  hosts:
+    - localhost
+    - blegrand-desktop
+    - debian12
+    - devuan
   become: true
   pre_tasks:
     - name: Update repositories
