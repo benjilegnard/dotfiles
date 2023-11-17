@@ -1,0 +1,9 @@
+- name: Install CLI packages
+  apt: name={{item}}
+  with_items:
+    - htop
+    - tmux
+    - jq
+    - git
+    - tig
+    - neovim
