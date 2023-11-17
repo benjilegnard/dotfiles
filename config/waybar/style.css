@@ -20,6 +20,15 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
 window#waybar.termite {
     background-color: #3F3F3F;
 }
@@ -95,8 +104,10 @@ button:hover {
 #scratchpad,
 #language,
 #mpd {
+    /*border: 1px solid currentColor;
+    */
     background-color: @base;
-    padding: 0 14px;
+    padding: 0 10px;
     border-radius: 14px;
     color: #ffffff;
 }
