@@ -2,8 +2,8 @@
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: FontAwesome, Hack, Helvetica, Arial, sans-serif;
+    font-size: 14px;
     border: none;
 }
 
@@ -19,15 +19,6 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -104,10 +95,9 @@ button:hover {
 #scratchpad,
 #language,
 #mpd {
-    border: 1px solid currentColor;
     background-color: @base;
-    padding: 0 10px;
-    border-radius: 12px;
+    padding: 0 14px;
+    border-radius: 14px;
     color: #ffffff;
 }
 
@@ -123,13 +113,12 @@ button:hover {
 
 .modules-left {
     background-color: @base;
-    padding: 0 12px;
-    border-radius: 12px;
+    padding: 0 14px;
+    border-radius: 14px;
 }
 
 #clock {
     background-color: @base;
-    border: 1px solid @teal;
     color: @teal;
 }
 
