@@ -32,7 +32,11 @@ exec blueman-applet
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # set $menu rofi -show drun | xargs swaymsg exec --
-set $menu fuzzel | xargs swaymsg exec --
+set $menu wofi --show drun -I | xargs swaymsg exec --
+
+# emoji picker
+bindsym $mod+z exec /home/b.legrand/.config/wofi/wofi-emoji
+
 include /etc/sway/config-vars.d/*
 
 exec gnome-keyring-daemon --start
@@ -45,7 +49,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec swaync
 
 # Toggle control center
-bindsym "$mod"+Shift+n exec swaync-client -t -sw
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 ### Output configuration
 #
@@ -54,8 +58,8 @@ bindsym "$mod"+Shift+n exec swaync-client -t -sw
 #
 
 # Random wallpaper
-# set "$wallpapers_path" "$HOME"/Images/SimonStalenhag
-# output * bg $(find "$wallpapers_path" -type f | shuf -n 1) fill
+set $wallpapers_path "$HOME"/Images/SimonStalenhag
+output * bg $(find "$wallpapers_path" -type f | shuf -n 1) fill
 
 #
 # Example configuration:
@@ -269,7 +273,6 @@ bindsym Mod4+Ctrl+p  exec grimshot save window
 #
 # Theming
 #
-include catppuccin-mocha
 
 default_border none
 default_floating_border none
@@ -277,15 +280,6 @@ hide_edge_borders both
 gaps inner 10
 
 # gaps outer 10
-# catppuccin defaults 
-# target                 title     bg    text   indicator  border
-client.focused           $pink     $base $text  $rosewater $pink
-client.focused_inactive  $mauve    $base $text  $rosewater $mauve
-client.unfocused         $mauve    $base $text  $rosewater $mauve
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
-
 #
 # Status Bar:
 #

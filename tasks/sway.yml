@@ -35,7 +35,7 @@
       - wl-clipboard
       - xdg-desktop-portal-wlr
       - sddm
-      - fuzzel
+      - wofi
       - zenity
     install_recommends: false
     # default_release: experimental
@@ -50,20 +50,23 @@
     group: "{{ user }}"
     mode: "755"
   loop:
-    - fuzzel
     - sway
     - swaylock
     - swaync
     - waybar
+    - wofi
 
-- name: Copy configuration file for fuzzel
+- name: Copy configuration file for wofi
   copy:
-    src: ./config/fuzzel/fuzzel.ini
-    dest: "/home/{{ user }}/.config/fuzzel/"
+    src: "./config/wofi/{{ item }}"
+    dest: "/home/{{ user }}/.config/wofi/"
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
-
+    loop:
+      - config
+      - style.css
+      - wofi-emoji
 - name: Copy configuration file for sway
   copy:
     src: ./config/sway/config
