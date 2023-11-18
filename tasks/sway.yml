@@ -22,6 +22,7 @@
       - pipewire
       - wireplumber
       - xwayland
+      - seatd
     install_recommends: false
     state: present
 
