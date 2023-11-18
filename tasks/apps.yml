@@ -1,5 +1,7 @@
+---
 - name: Install GUI tools
-  apt: name={{item}}
+  ansible.builtin.apt:
+    name: "{{ item }}"
   with_items:
     - xournal
     - gimp
