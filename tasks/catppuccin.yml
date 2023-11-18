@@ -1,6 +1,16 @@
 # here are all the customization for catppuccin themes
 # we checkout the different themes from github organizations:
 
+# things used by the themes
+- name: Install fonts and themes deps
+  become: yes
+  apt:
+    name:
+      - fonts-font-awesome
+      - fonts-hack
+    install_recommends: false
+    state: present
+
 #
 # GRUB
 #
