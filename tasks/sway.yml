@@ -17,8 +17,11 @@
       - wl-clipboard
       - xdg-desktop-portal-wlr
       - wofi
+      - foot
       - zenity
       - gnome-keyring
+      - pipewire
+      - wireplumber
     install_recommends: false
     state: present
 
