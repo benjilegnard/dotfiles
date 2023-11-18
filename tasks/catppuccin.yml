@@ -88,54 +88,6 @@
 #  when: grub_tty_check.found == 0
 
 #
-# SDDM : https://github.com/catppuccin/sddm
-#
-- name: Clone catppuccin/sddm
-  git:
-    repo: https://github.com/catppuccin/sddm.git
-    dest: ./theme/catppuccin/sddm
-    clone: yes
-    update: yes
-    depth: 1
-
-- name: Copy theme files for sddm
-  become: true
-  copy:
-    src: ./theme/catppuccin/sddm/src/catppuccin-mocha
-    dest: /usr/share/sddm/themes
-
-- name: Checks if sddm config file exists
-  stat:
-    path: /etc/sddm.conf
-  register: sddm_conf
-
-- name: Create ssmd.conf file if not exists
-  become: true
-  shell: touch /etc/sddm.conf
-  when: not sddm_conf.stat.exists
-
-- name: Checks if theme config exists for sddm
-  lineinfile:
-    backup: true
-    path: /etc/sddm.conf
-    regexp: '^Current=catppuccin-mocha.*'
-    state: absent
-  check_mode: true
-  register: sddm_theme_check
-  changed_when: false
-
-- name: Enable the theme in sddm configuration
-  become: true
-  lineinfile:
-    path: /etc/sddm.conf
-    line: "{{ item }}"
-    create: true
-  loop:
-    - "[Theme]"
-    - "Current=catppuccin-mocha"
-  when: sddm_theme_check.found == 0
-
-#
 # Waybar https://github.com/catppuccin/waybar
 #
 - name: Clone catppuccin/waybar
