@@ -6,4 +6,6 @@
     - jq
     - git
     - tig
-    - neovim
+    - vim
+    - zsh
+    - curl
