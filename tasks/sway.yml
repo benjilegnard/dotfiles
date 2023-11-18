@@ -18,8 +18,8 @@
       - xdg-desktop-portal-wlr
       - wofi
       - zenity
+      - gnome-keyring
     install_recommends: false
-    # default_release: experimental
     state: present
 
 - name: Ensure config directories exists
