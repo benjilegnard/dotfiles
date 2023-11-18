@@ -96,4 +96,19 @@
     group: "{{ user }}"
     mode: "755"
 
+- name: Install seat
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - seatd
+      - seatd-session
+    install_recommends: false
+    state: present
+- name: Add user to seatd group
+  become: yes
+  ansible.builtin.user:
+    name: "{{ user }}"
+    groups: seatd
+    append: yes
+
 # todo: wl-imirror
