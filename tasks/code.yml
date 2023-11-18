@@ -1,14 +1,16 @@
+---
 # - name: Add apt repository for vscode
 #   apt_repository: https://packages.microsoft.com/repos/code
 
 - name: Install command line tools
-  apt: name={{item}}
+  ansible.builtin.apt:
+    name: "{{ item }}"
   with_items:
     - code
 
 - name: Install VSCode extensions
-  ansible.builtin.shell:
-    cmd: code --no-sandbox --install-extension  {{item}}
+  ansible.builtin.command:
+    cmd: code --no-sandbox --install-extension  {{ item }}
   with_items:
     - Angular.ng-template
     - Antyos.openscad
@@ -67,7 +69,7 @@
     - yzhang.markdown-all-in-one
 
 - name: Uninstall VSCode extensions
-  ansible.builtin.shell:
-    cmd: code --no-sandbox --uninstall-extension {{item}}
+  ansible.builtin.command:
+    cmd: code --no-sandbox --uninstall-extension {{ item }}
   with_items:
     - ms-edgedevtools.vscode-edge-devtools

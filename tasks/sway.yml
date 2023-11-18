@@ -1,8 +1,8 @@
+---
 # Sway, a tiling manager. Here we install all things related to the sway and wayland desktop environment.
-
 - name: Install sway and wayland related packages
-  become: yes
-  apt:
+  become: true
+  ansible.builtin.apt:
     name:
       - sway
       - grimshot
@@ -26,8 +26,8 @@
     state: present
 
 - name: Ensure config directories exists
-  file:
-    path: "/home/{{ user }}/.config/{{ item }}/"
+  ansible.builtin.file:
+    path: /home/{{ user }}/.config/{{ item }}/
     recurse: true
     state: directory
     owner: "{{ user }}"
@@ -41,9 +41,9 @@
     - wofi
 
 - name: Copy configuration file for wofi
-  copy:
-    src: "./config/wofi/{{ item }}"
-    dest: "/home/{{ user }}/.config/wofi/"
+  ansible.builtin.copy:
+    src: ./config/wofi/{{ item }}
+    dest: /home/{{ user }}/.config/wofi/
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
@@ -53,34 +53,38 @@
     - wofi-emoji
 
 - name: Copy configuration file for sway
-  copy:
+  ansible.builtin.copy:
     src: ./config/sway/config
-    dest: "/home/{{ user }}/.config/sway/"
+    dest: /home/{{ user }}/.config/sway/
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
 
 - name: Copy configuration file for swaylock
-  copy:
+  ansible.builtin.copy:
     src: ./config/swaylock/config
-    dest: "/home/{{ user }}/.config/swaylock/"
+    dest: /home/{{ user }}/.config/swaylock/
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
 
 - name: Copy configuration file for sway notification center
-  copy:
+  ansible.builtin.copy:
     src: ./config/swaync/style.css
-    dest: "/home/{{ user }}/.config/swaync/"
+    dest: /home/{{ user }}/.config/swaync/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
 
 - name: Copy config files for waybar
-  copy:
-    src: "./config/waybar/{{ item }}"
-    dest: "/home/{{ user }}/.config/waybar/"
+  ansible.builtin.copy:
+    src: ./config/waybar/{{ item }}
+    dest: /home/{{ user }}/.config/waybar/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
   loop:
     - style.css
     - config
-
-
 
 # todo: wl-imirror

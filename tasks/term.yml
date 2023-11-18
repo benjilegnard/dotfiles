@@ -1,5 +1,7 @@
+---
 - name: Install CLI packages
-  apt: name={{item}}
+  ansible.builtin.apt:
+    name: "{{ item }}"
   with_items:
     - htop
     - tmux
