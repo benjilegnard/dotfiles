@@ -44,7 +44,6 @@ With the catppuccin theme applied in mocha flavor for the following :
 
 - [x] grub
 - [ ] tty (not finished)
-- [x] sddm
 - [x] sway
 - [x] swaync
 - [x] wofi

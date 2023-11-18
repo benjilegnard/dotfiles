@@ -16,7 +16,6 @@
       - wf-recorder
       - wl-clipboard
       - xdg-desktop-portal-wlr
-      - sddm
       - wofi
       - zenity
     install_recommends: false
