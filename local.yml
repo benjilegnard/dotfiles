@@ -8,13 +8,13 @@
         update_cache: true
       changed_when: false
   tasks:
-    # - name: Install CLI tools
-    #   include_tasks: tasks/term.yml
-    # - name: Install and configure VSCode
-    #   include_tasks: tasks/code.yml
+    - name: Install CLI tools
+      ansible.builtin.include_tasks: tasks/term.yml
     - name: Install and configure sway and waybar
       ansible.builtin.include_tasks: tasks/sway.yml
     - name: Install common GUI apps
       ansible.builtin.include_tasks: tasks/apps.yml
     - name: Install and configure catppuccin theme
       ansible.builtin.include_tasks: tasks/catppuccin.yml
+    - name: Install and configure VSCode
+      ansible.builtin.include_tasks: tasks/code.yml
