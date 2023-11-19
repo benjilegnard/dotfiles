@@ -15,3 +15,14 @@
     - thunar
     - thunar-archive-plugin
     - thunar-media-tags-plugin
+
+- name: Add mozillateam repository
+  ansible.builtin.apt_repository:
+    repo: "ppa:mozillateam/firefox-next"
+    filename: "mozillateam-firefox-next"
+    state: present
+
+- name: Install Firefox
+  ansible.builtin.apt:
+    name: firefox
+    state: present
