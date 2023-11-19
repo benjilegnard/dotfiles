@@ -1,16 +1,32 @@
 ---
-# - name: Add apt repository for vscode
-#   apt_repository: https://packages.microsoft.com/repos/code
+- name: Add microsoft repository key
+  ansible.builtin.get_url:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: /etc/apt/trusted.gpg.d/microsoft.asc
+    mode: "644"
+    force: true
 
-- name: Install command line tools
+- name: Add vscode repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 trusted=yes] https://packages.microsoft.com/repos/vscode stable main"
+    filename: "vscode"
+    state: present
+
+- name: Install VSCode
   ansible.builtin.apt:
-    name: "{{ item }}"
-  with_items:
-    - code
+    name: code
+    state: present
+
+- name: List installed extensions with versions
+  ansible.builtin.command:
+    cmd: code --no-sandbox --list-extensions --show-versions
+  register: installed_extensions
 
 - name: Install VSCode extensions
   ansible.builtin.command:
-    cmd: code --no-sandbox --install-extension  {{ item }}
+    cmd: code --no-sandbox --install-extension {{ item }}
+    when: "'{{ item }}' not in installed_extensions"
+    register: installation_result
   with_items:
     - Angular.ng-template
     - Antyos.openscad

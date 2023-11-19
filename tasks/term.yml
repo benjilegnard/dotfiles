@@ -2,6 +2,7 @@
 - name: Install CLI packages
   ansible.builtin.apt:
     name: "{{ item }}"
+    state: present
   with_items:
     - htop
     - tmux
@@ -11,3 +12,6 @@
     - vim
     - zsh
     - curl
+    - zip
+
+# todo: configure zsh and powerline

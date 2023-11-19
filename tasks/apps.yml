@@ -2,6 +2,7 @@
 - name: Install GUI tools
   ansible.builtin.apt:
     name: "{{ item }}"
+    state: present
   with_items:
     - xournal
     - gimp
@@ -9,5 +10,8 @@
     - shotwell
     - openscad
     - inkscape
-    - blender
+    # - blender
     - krita
+    - thunar
+    - thunar-archive-plugin
+    - thunar-media-tags-plugin
