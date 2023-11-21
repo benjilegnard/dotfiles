@@ -18,3 +18,5 @@
       ansible.builtin.include_tasks: tasks/catppuccin.yml
 #    - name: Install and configure VSCode
 #      ansible.builtin.include_tasks: tasks/code.yml
+    - name: Download wallpapers 
+      ansible.builtin.include_tasks: tasks/wallpapers.yml

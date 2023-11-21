@@ -58,8 +58,8 @@ bindsym $mod+Shift+n exec swaync-client -t -sw
 #
 
 # Random wallpaper
-# set "$wallpapers_path" "$HOME"/Images/SimonStalenhag
-# output * bg $(find "$wallpapers_path" -type f | shuf -n 1) fill
+set $wallpapers_path "$HOME"/Images/SimonStalenhag
+output * bg $(find "$wallpapers_path" -type f | shuf -n 1) fill
 
 #
 # Example configuration:
