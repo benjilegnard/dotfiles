@@ -27,7 +27,7 @@
     cmd: code --no-sandbox --install-extension {{ item }}
     when: "'{{ item }}' not in installed_extensions"
     register: installation_result
-  with_items:
+  loop:
     - Angular.ng-template
     - Antyos.openscad
     - Catppuccin.catppuccin-vsc
@@ -87,5 +87,5 @@
 - name: Uninstall VSCode extensions
   ansible.builtin.command:
     cmd: code --no-sandbox --uninstall-extension {{ item }}
-  with_items:
+  loop:
     - ms-edgedevtools.vscode-edge-devtools
