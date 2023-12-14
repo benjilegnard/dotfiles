@@ -14,4 +14,41 @@
     - curl
     - zip
 
-# todo: configure zsh and powerline
+- name: Configure zsh
+  ansible.builtin.shell: |
+    chsh -s $(which zsh) {{ user }}
+
+- name: Checks if starship is available
+  ansible.builtin.command: which starship
+  register: starship_available
+  check_mode: false
+  failed_when: starship_available.rc != 0 and starship_available.rc != 1
+
+- name: Install starship with curl
+  when: "starship_available.rc == 1"
+  check_mode: false
+  become: true
+  ansible.builtin.shell: |
+    curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+
+- name: Add starship init to bashrc
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/.bashrc
+    line: 'eval "$(starship init bash)"'
+    state: present
+    create: yes
+
+- name: Add starship init to zshrc
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/.zshrc
+    line: 'eval "$(starship init zsh)"'
+    state: present
+    create: yes
+
+- name: Copy starship configuration
+  ansible.builtin.copy:
+    src: ./config/starship.toml
+    dest: /home/{{ user }}/.config/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
