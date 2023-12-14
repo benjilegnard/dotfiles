@@ -9,7 +9,6 @@
     - jq
     - git
     - tig
-    - vim
     - zsh
     - curl
     - zip

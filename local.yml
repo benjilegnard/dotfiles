@@ -16,6 +16,8 @@
       ansible.builtin.include_tasks: tasks/apps.yml
     - name: Install and configure catppuccin theme
       ansible.builtin.include_tasks: tasks/catppuccin.yml
+    - name: Install and configure vim 
+      ansible.builtin.include_tasks: tasks/vim.yml
 #    - name: Install and configure VSCode
 #      ansible.builtin.include_tasks: tasks/code.yml
     - name: Download wallpapers 
