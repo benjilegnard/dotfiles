@@ -13,6 +13,7 @@
     - zsh
     - curl
     - zip
+    - fzf
 
 - name: Configure zsh
   ansible.builtin.shell: |
