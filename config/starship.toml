@@ -1,5 +1,5 @@
 add_newline = true
-palette = "catppuccin_flavor"
+palette = "catppuccin_mocha"
 
 [git_status]
 ahead = '⇡${count}'
