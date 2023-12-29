@@ -18,32 +18,50 @@
   ansible.builtin.shell: |
     chsh -s $(which zsh) {{ user }}
 
-- name: Checks if starship is available
-  ansible.builtin.command: which starship
-  register: starship_available
-  check_mode: false
-  failed_when: starship_available.rc != 0 and starship_available.rc != 1
+# starship
 
-- name: Install starship with curl
-  when: "starship_available.rc == 1"
-  check_mode: false
-  become: true
-  ansible.builtin.shell: |
-    curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+- name: Checks if starship is available
+  ansible.builtin.command: command -v starship >/dev/null 2>&1
+  register: starship_available
+  no_log: true
+  ignore_errors: true
+
+- name: Download starship installation script
+  when: "starship_available.rc != 0"
+  ansible.builtin.get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship-installer.sh
+    mode: 'u+rwx'
+  register: starship_download
+
+- name: Run the install starship script
+  ansible.builtin.shell: /tmp/starship-installer.sh -y
+  when: starship_download.changed
+
+- name: Remove the starship-installer.sh
+  ansible.builtin.file:
+    path: /tmp/starship-installer.sh
+    state: absent
 
 - name: Add starship init to bashrc
   ansible.builtin.lineinfile:
     path: /home/{{ user }}/.bashrc
     line: 'eval "$(starship init bash)"'
     state: present
-    create: yes
+    create: true
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
 
 - name: Add starship init to zshrc
   ansible.builtin.lineinfile:
     path: /home/{{ user }}/.zshrc
     line: 'eval "$(starship init zsh)"'
     state: present
-    create: yes
+    create: true
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
 
 - name: Copy starship configuration
   ansible.builtin.copy:
@@ -51,4 +69,22 @@
     dest: /home/{{ user }}/.config/
     owner: "{{ user }}"
     group: "{{ user }}"
-    mode: "755"
+    mode: "644"
+
+- name: Checks if oh-my-zsh is available
+  ansible.builtin.command: command -v omz >/dev/null 2>&1
+  register: omz_available
+  no_log: true
+  ignore_errors: true
+
+- name: Download oh-my-zsh install script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/ohmyzsh-installer.sh
+    mode: 'u+rwx'
+  register: omz_download
+  when: "omz_available.rc != 0"
+
+- name: Run the install oh-my-zsh script
+  ansible.builtin.shell: /tmp/ohmyzsh-installer.sh
+  when: omz_download.changed
