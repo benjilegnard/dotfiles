@@ -71,6 +71,8 @@
     group: "{{ user }}"
     mode: "644"
 
+# oh-my-zsh
+
 - name: Checks if oh-my-zsh is available
   ansible.builtin.command: command -v omz >/dev/null 2>&1
   register: omz_available
@@ -108,3 +110,30 @@
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
     dest: /home/{{ user }}/.local/share/fonts
     remote_src: true
+
+# tmux
+
+- name: Ensure tmux config directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/{{ item }}
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+  loop:
+    - .config/tmux
+    - .tmux/plugins/tpm
+
+- name: Copy tmux configuration
+  ansible.builtin.copy:
+    src: ./config/tmux/tmux.conf
+    dest: /home/{{ user }}/.config/tmux/tmux.conf
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
+
+- name: Clone and install tpm
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: /home/{{ user }}/.tmux/plugins/tpm
+    version: 99469c4
