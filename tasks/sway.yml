@@ -39,6 +39,7 @@
     - swaync
     - waybar
     - wofi
+    - foot
 
 - name: Copy configuration file for wofi
   ansible.builtin.copy:
@@ -86,5 +87,13 @@
   loop:
     - style.css
     - config
+
+- name: Copy configuration file for foot
+  ansible.builtin.copy:
+    src: ./config/foot/foot.ini
+    dest: /home/{{ user }}/.config/foot/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
 
 # todo: wl-imirror
