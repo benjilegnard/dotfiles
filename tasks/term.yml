@@ -88,3 +88,23 @@
 - name: Run the install oh-my-zsh script
   ansible.builtin.shell: /tmp/ohmyzsh-installer.sh
   when: omz_download.changed
+
+# Install Hack font
+
+- name: Ensure fonts directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/.local/share/fonts
+    state: directory
+
+- name: Hack exists
+  ansible.builtin.shell: "ls /home/{{ user }}/.local/share/fonts/Hack*Nerd*Font*"
+  register: hack_exists
+  ignore_errors: true
+  no_log: true
+
+- name: Download and extract Hack font
+  when: hack_exists is failed
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
+    dest: /home/{{ user }}/.local/share/fonts
+    remote_src: true
