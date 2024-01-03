@@ -98,6 +98,26 @@
     group: "{{ user }}"
     mode: "644"
 
+# oh-my-zsh
+
+- name: Checks if oh-my-zsh is available
+  ansible.builtin.command: cat /home/{{ user }}/.oh-my-zsh
+  register: omz_available
+  ignore_errors: true
+
+- name: Download oh-my-zsh install script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/ohmyzsh-installer.sh
+    mode: 'u+rwx'
+  register: omz_download
+  when: "omz_available.rc != 0"
+
+- name: Run the install oh-my-zsh script
+  ansible.builtin.shell: /tmp/ohmyzsh-installer.sh  
+  become: "{{ user }}"
+  when: omz_download.changed
+  
 # Install Hack font
 
 - name: Ensure fonts directory exists
