@@ -12,6 +12,7 @@
       - fonts-noto-color-emoji
       - gnome-themes-extra
       - gnome-settings-daemon
+      - gnome-tweaks
       - libgtk-4-1
     install_recommends: false
     state: present
@@ -100,8 +101,7 @@
   register: tty_theme
   when: grub_tty_check.found is defined and grub_tty_check.found == 0
 
-# FIXME; this does not work when config exists
-- name: Configure tty theme in CRUB_CMDLINE_LINUX options
+- name: Configure tty theme in CRUB_CMDLINE_LINUX options 
   become: true
   ansible.builtin.lineinfile:
     dest: /etc/default/grub
