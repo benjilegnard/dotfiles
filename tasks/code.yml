@@ -1,8 +1,8 @@
 ---
-- name: Add microsoft repository key
+- name: Add vscodium repository key
   ansible.builtin.get_url:
-    url: https://packages.microsoft.com/keys/microsoft.asc
-    dest: /etc/apt/trusted.gpg.d/microsoft.asc
+    url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+    dest: /etc/apt/trusted.gpg.d/vscodium.asc
     mode: "644"
     force: true
 
@@ -12,19 +12,24 @@
     filename: "vscode"
     state: present
 
-- name: Install VSCode
+- name: Install codium
+  ansible.builtin.apt:
+    name: codium
+    state: present
+
+- name: Remove VSCode
   ansible.builtin.apt:
     name: code
-    state: present
+    state: absent
 
 - name: List installed extensions with versions
   ansible.builtin.command:
-    cmd: code --no-sandbox --list-extensions --show-versions
+    cmd: codium --no-sandbox --list-extensions --show-versions
   register: installed_extensions
 
-- name: Install VSCode extensions
+- name: Install VSCodium extensions
   ansible.builtin.command:
-    cmd: code --no-sandbox --install-extension {{ item }}
+    cmd: codium --no-sandbox --install-extension {{ item }}
     when: "'{{ item }}' not in installed_extensions"
     register: installation_result
   loop:
@@ -86,6 +91,6 @@
 
 - name: Uninstall VSCode extensions
   ansible.builtin.command:
-    cmd: code --no-sandbox --uninstall-extension {{ item }}
+    cmd: codium --no-sandbox --uninstall-extension {{ item }}
   loop:
     - ms-edgedevtools.vscode-edge-devtools

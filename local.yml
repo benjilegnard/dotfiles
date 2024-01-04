@@ -22,5 +22,7 @@
       ansible.builtin.include_tasks: tasks/git.yml
     - name: Install obs and streaming tools
       ansible.builtin.include_tasks: tasks/stream.yml
+    - name: Install and configure VSCodium
+      ansible.builtin.include_tasks: tasks/code.yml
     - name: Download wallpapers
       ansible.builtin.include_tasks: tasks/wallpapers.yml
