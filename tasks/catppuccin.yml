@@ -135,32 +135,6 @@
     mode: "755"
 
 #
-# Foot ( TODO ) https://github.com/catppuccin/foot
-#
-- name: Clone catppuccin/foot
-  ansible.builtin.git:
-    repo: https://github.com/catppuccin/foot.git
-    version: "009cd57"
-    dest: ./theme/catppuccin/foot
-    clone: true
-    update: true
-    depth: 1
-
-- name: Ensure foot config directory exists
-  ansible.builtin.file:
-    path: /home/{{ user }}/.config/foot
-    recurse: true
-    state: directory
-
-- name: Copy configuration file for foot
-  ansible.builtin.copy:
-    src: ./theme/catppuccin/foot/catppuccin-mocha.conf
-    dest: /home/{{ user }}/.config/foot/foot.ini
-    owner: "{{ user }}"
-    group: "{{ user }}"
-    mode: "755"
-
-#
 # GTK ( TODO ) https://github.com/catppuccin/gtk
 #
 - name: Clone catppuccin/gtk
