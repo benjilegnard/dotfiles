@@ -17,15 +17,15 @@ Add apps and their PPA :
 - [x] sway
 - [x] swaync
 - [x] wofi
-- [ ] foot
-- [ ] zsh
+- [x] foot
+- [x] zsh
 
 ## Some other things to do:
 
 - [ ] ansible lint
 - [ ] refactor into roles
 - [ ] manages several hosts and usernames
-- [ ] automate zsh install
+- [x] automate zsh install
 - [ ] automate zsh-nvm plugin install
 - [ ] add nvm script
-- [ ] automate powerline10k install
+- [ ] automate starship install
