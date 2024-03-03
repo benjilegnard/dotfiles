@@ -21,7 +21,9 @@
 # starship
 
 - name: Checks if starship is available
-  ansible.builtin.command: command -v starship >/dev/null 2>&1
+  ansible.builtin.raw: which starship
+  check_mode: false
+  changed_when: false
   register: starship_available
   ignore_errors: true
 
