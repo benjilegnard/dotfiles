@@ -216,7 +216,7 @@
 
 - name: Clone Qogir icon theme
   ansible.builtin.git:
-    repo: https://github.com/vinceliuice/Qogir-icon-theme/
+    repo: https://github.com/vinceliuice/Qogir-icon-theme.git
     version: "2023-06-05"
     dest: ./theme/qogir-icon-theme
     clone: true
