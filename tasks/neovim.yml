@@ -20,3 +20,25 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "644"
+
+- name: Uninstall vim
+  become: true
+  apt:
+    name:
+      - vim-tiny
+      - vim-common
+      - vi
+    state: absent
+
+- name: Update alternatives for vi
+  community.general.alternatives:
+    name: "{{ item }}"
+    link: /usr/bin/{{ item}}
+    path: /usr/bin/nvim
+    priority: 60
+    state: selected
+  become: true
+  loop:
+    - editor
+    - vi
+    - vim
