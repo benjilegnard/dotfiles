@@ -23,7 +23,7 @@
   ansible.builtin.git:
     repo: https://github.com/catppuccin/grub.git
     version: 803c5df
-    dest: ./theme/catppuccin/grub
+    dest: ./temp/catppuccin/grub
     accept_hostkey: true
     clone: true
     update: true
@@ -32,7 +32,7 @@
 - name: Copy theme files for grub
   become: true
   ansible.builtin.copy:
-    src: ./theme/catppuccin/grub/src/catppuccin-mocha-grub-theme
+    src: ./temp/catppuccin/grub/src/catppuccin-mocha-grub-theme
     dest: /usr/share/grub/themes
     owner: root
     group: root
@@ -71,7 +71,7 @@
   ansible.builtin.git:
     repo: https://github.com/catppuccin/tty.git
     version: d18074f
-    dest: ./theme/catppuccin/tty
+    dest: ./temp/catppuccin/tty
     clone: true
     update: true
     depth: 1
@@ -88,7 +88,7 @@
 
 - name: Generate mocha theme
   ansible.builtin.command:
-    chdir: ./theme/catppuccin/tty
+    chdir: ./temp/catppuccin/tty
     cmd: ./generate.sh mocha
   register: tty_theme
   when: grub_tty_check.found == 0
@@ -116,7 +116,7 @@
   ansible.builtin.git:
     repo: https://github.com/catppuccin/waybar.git
     version: f74ab1e
-    dest: ./theme/catppuccin/waybar
+    dest: ./temp/catppuccin/waybar
     clone: true
     update: true
     depth: 1
@@ -132,7 +132,7 @@
 
 - name: Copy mocha theme files for waybar
   ansible.builtin.copy:
-    src: ./theme/catppuccin/waybar/themes/mocha.css
+    src: ./temp/catppuccin/waybar/themes/mocha.css
     dest: /home/{{ user }}/.config/waybar
     owner: "{{ user }}"
     group: "{{ user }}"
@@ -218,7 +218,7 @@
   ansible.builtin.git:
     repo: https://github.com/vinceliuice/Qogir-icon-theme.git
     version: "2023-06-05"
-    dest: ./theme/qogir-icon-theme
+    dest: ./temp/qogir-icon-theme
     clone: true
     update: true
     depth: 1
@@ -230,7 +230,7 @@
 
 - name: Install icon theme
   ansible.builtin.command:
-    chdir: ./theme/qogir-icon-theme
+    chdir: ./temp/qogir-icon-theme
     cmd: ./install.sh
   become: true
   register: tty_theme
