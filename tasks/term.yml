@@ -113,6 +113,6 @@
 
 - name: Clone and install tpm
   ansible.builtin.git:
-    repo: https://github.com/tmux-plugins/tpm
+    repo: https://github.com/tmux-plugins/tpm.git
     dest: /home/{{ user }}/.tmux/plugins/tpm
     version: 99469c4
