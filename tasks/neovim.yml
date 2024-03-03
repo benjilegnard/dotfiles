@@ -1,40 +1,17 @@
 ---
-# In case you don't like git submodules
-- name: Clone nvim repository
-  git:
-    repo: https://github.com/neovim/neovim
-    dest: "./theme/neovim"
-    clone: true
-    version: "v0.9.5"
+- name: Add neovim repository
+  ansible.builtin.apt_repository:
+    repo: ppa:neovim-ppa/stable
+    codename: mantic
+    filename: "neovim"
+  become: true
 
-- name: Install nvim build dependencies
+- name: Install neovim
   become: true
   apt:
     name:
-      - ninja-build
-      - gettext
-      - libtool
-      - libtool-bin
-      - autoconf
-      - automake
-      - cmake
-      - g++
-      - pkg-config
-      - unzip
-      - curl
+      - neovim
     state: present
-
-- name: Build nvim release version
-  community.general.make:
-    chdir: ./theme/neovim
-    params:
-      CMAKE_BUILD_TYPE: Release
-
-- name: Install nvim release version
-  become: true
-  community.general.make:
-    chdir: ./theme/neovim
-    target: install
 
 - name: Copy nvim config directory
   ansible.builtin.copy:
