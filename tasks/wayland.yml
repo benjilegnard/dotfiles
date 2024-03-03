@@ -1,0 +1,36 @@
+---
+# wl-mirror
+# TODO https://github.com/Ferdi265/wl-mirror
+
+- name: Clone wl-mirror repositories
+  ansible.builtin.git:
+    src: ./config/foot/
+
+#
+# wlshowkeys dependencies
+# @see https://github.com/ammgws/wshowkeys
+#
+- name: Install wshowkeys build dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - libcairo2-dev
+      - libinput-dev
+      - libpango1.0-dev
+      - libudev-dev
+      - libxkbcommon-dev
+      - libwayland-client0
+      - meson
+      - wayland
+    state: present
+
+- name: Clone wshowkeys repository
+  ansible.builtin.git:
+    url: https://git.sr.ht/~sircmpwn/wshowkeys.git
+    dest: ./themes/wlshowkeys
+
+- name: Build wshowkeys
+  ansible.builtin.command: meson build
+
+
+
