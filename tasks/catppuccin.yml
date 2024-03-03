@@ -212,18 +212,26 @@
     path: /home/{{ user }}/.config/gtk-3.0/settings.ini
     line: gtk-theme-name={{ gtk_theme }}
 
-# bonus, awf-gtk4 for testing the theme
+# Icons and cursors theme : Qogir ( https://github.com/vinceliuice/Qogir-icon-theme/ )
 
-- name: Add awf-gtk repository
-  ansible.builtin.apt_repository:
-    repo: ppa:luigifab/packages
-    codename: mantic
-    filename: "luigifab-packages"
-  become: true
+- name: Clone Qogir icon theme
+  ansible.builtin.git:
+    repo: https://github.com/vinceliuice/Qogir-icon-theme/
+    version: "2023-06-05"
+    dest: ./theme/qogir-icon-theme
+    clone: true
+    update: true
+    depth: 1
 
-- name: Install awf-gtk4
+- name: Check if qogir icon theme is installed
+  ansible.builtin.stat: 
+    path: /usr/share/icons/Qogir
+  register: qogir_icon_check
+
+- name: Install icon theme
+  ansible.builtin.command:
+    chdir: ./theme/qogir-icon-theme
+    cmd: ./install.sh
   become: true
-  apt:
-    name:
-      - awf-gtk4
-    state: present
+  register: tty_theme
+  when: qogir_icon_check.stat.exists == 0
