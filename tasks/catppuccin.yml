@@ -10,6 +10,8 @@
       - fonts-font-awesome
       - fonts-hack
       - fonts-noto-color-emoji
+      - gnome-themes-extra
+      - libgtk-4-1
     install_recommends: false
     state: present
 
@@ -136,13 +138,87 @@
     mode: "755"
 
 #
-# GTK ( TODO ) https://github.com/catppuccin/gtk
+# GTK https://github.com/catppuccin/gtk
 #
-- name: Clone catppuccin/gtk
-  ansible.builtin.git:
-    repo: https://github.com/catppuccin/gtk.git
-    version: v0.7.1
-    dest: ./theme/catppuccin/gtk
-    clone: true
-    update: true
-    depth: 1
+- name: Set gtk theme variable
+  ansible.builtin.set_fact:
+    gtk_theme: Catppuccin-Mocha-Standard-Teal-Dark
+
+- name : Ensure user themes directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/.themes
+    recurse: true
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
+- name: Download and install catppuccin/gtk to themes
+  ansible.builtin.unarchive:
+    src: https://github.com/catppuccin/gtk/releases/download/v0.7.1/{{ gtk_theme }}.zip
+    dest: /home/{{ user }}/.themes/
+    creates: /home/{{ user }}/.themes/{{ gtk_theme }}
+    remote_src: true
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
+- name : Ensure gtk-4.0 and gtk-3.0 config directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/.config/{{ item }}
+    recurse: true
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+  loop:
+    - gtk-4.0
+    - gtk-3.0
+
+- name: Copy settings.ini for gtk
+  ansible.builtin.copy:
+    src: ./config/gtk/settings.ini
+    dest: /home/{{ user }}/.config/gtk-3.0/settings.ini
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
+- name: Create symbolic links for gtk-4.0
+  ansible.builtin.file:
+    src: /home/{{ user }}/.themes/{{ gtk_theme }}/gtk-4.0/{{ item }}
+    dest: /home/{{ user }}/.config/gtk-4.0/{{ item }}
+    state: link
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+  loop:
+    - assets
+    - gtk.css
+    - gtk-dark.css
+
+- name: Enable theme in profile
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/.profile
+    line: export GTK_THEME="{{ gtk_theme }}"
+    create: true
+
+- name: Enable theme in settings
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/.config/gtk-3.0/settings.ini
+    line: gtk-theme-name={{ gtk_theme }}
+
+# bonus, awf-gtk4 for testing the theme
+
+- name: Add awf-gtk repository
+  ansible.builtin.apt_repository:
+    repo: ppa:luigifab/packages
+    codename: mantic
+    filename: "luigifab-packages"
+  become: true
+
+- name: Install awf-gtk4
+  become: true
+  apt:
+    name:
+      - awf-gtk4
+    state: present
