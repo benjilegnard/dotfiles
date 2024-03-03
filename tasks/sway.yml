@@ -21,6 +21,7 @@
       - gnome-keyring
       - pipewire
       - wireplumber
+      - xwayland
     install_recommends: false
     state: present
 
@@ -116,3 +117,13 @@
     owner: root
     group: root
     mode: "755"
+
+# various configs and env vars
+- name: Enable theme in profile and rc files
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/{{ item }}
+    line: export XDG_RUNTIME_DIR=/run/user/{{ uid }}
+    create: true
+  loop:
+    - .zshrc
+    - .bashrc

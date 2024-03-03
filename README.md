@@ -43,5 +43,5 @@ adduser <your_username> sudo
 ```
 3. Run tasks from this repository with ansible
 ```
-ansible-pull --ask-become-pass -U https://github.com/benjilegnard/dotfiles.git -e "user=<your_username>"
+ansible-pull --ask-become-pass -U https://github.com/benjilegnard/dotfiles.git -e "user=<your_username> uid=1000"
 ```
