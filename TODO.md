@@ -5,20 +5,20 @@ Add apps and their PPA :
 - [ ] firefox
 - [ ] chrome
 - [ ] vscode
-- [ ] neovim
-- [ ] gimp
+- [x] neovim
+- [x] gimp
 - [ ] fonts
 - [ ] rhythmbox
 
 ## Add the catppuccin theme applied in mocha flavor for the following :
 
 - [x] grub
-- [ ] tty (not finished)
+- [x] tty
 - [x] sway
 - [x] swaync
 - [x] wofi
 - [x] foot
-- [x] zsh
+- [x] gtk theme
 
 ## Some other things to do:
 

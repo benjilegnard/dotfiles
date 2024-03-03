@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# usage: start-keyring
+gnome-keyring-daemon --start
+# get user id
+uid=$(id -u)
+# export SSH_AUTH_SOCK
+export SSH_AUTH_SOCK=/run/user/$uid/keyring/ssh

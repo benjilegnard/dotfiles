@@ -64,6 +64,8 @@
   loop:
     - config
     - import-gsettings
+    - init-xdg
+    - start-keyring
 
 - name: Copy configuration file for swaylock
   ansible.builtin.copy:

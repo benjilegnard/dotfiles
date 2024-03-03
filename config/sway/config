@@ -37,11 +37,12 @@ set $menu wofi --show drun -I | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
-exec gnome-keyring-daemon --start
-exec export SSH_AUTH_SOCK=/run/user/381850423/keyring/ssh
+# Import gsettings
+exec_always import-gsettings
 
-# for xdg-desktop-portal-wlr
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec_always init-xdg
+
+exec_always start-keyring
 
 # Notification Daemon
 exec swaync
@@ -303,7 +304,3 @@ bar {
 }
 
 include /etc/sway/config.d/*
-
-# Import gsettings
-exec_always import-gsettings
-
