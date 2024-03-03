@@ -4,6 +4,14 @@
 # let links = [];document.querySelectorAll('a').forEach((node)=>{links.push(node.href)});
 # let images = [...new Set(links)].filter(href => /.*\.jpg$/g.test(href)).map(img => img.split('/').pop().replace('.jpg',''))
 # console.log(images);
+- name: Checks if wallpaper directory exists
+  ansible.builtin.stat:
+    path: /home/{{ user }}/Images/SimonStalenhag/
+  register: wallpaper_directory
+
+- name: Debug wallpaper directory
+  ansible.builtin.debug:
+    var: wallpaper_directory.stat.exists
 
 - name: Ensure wallpaper directory exists
   ansible.builtin.file:
@@ -15,6 +23,7 @@
     mode: "755"
 
 - name: Download "tales from the loop" wallpapers
+  when: wallpaper_directory.stat.exists == 0
   ansible.builtin.get_url:
     url: "https://www.simonstalenhag.se/tftlbig/{{ item }}.jpg"
     dest: /home/{{ user }}/Images/SimonStalenhag/tftl_{{ item }}.jpg
@@ -24,6 +33,7 @@
   loop: "{{ range(1, 47) | difference([21]) | list }}"
 
 - name: Download "things from the flood" wallpapers
+  when: wallpaper_directory.stat.exists == 0
   ansible.builtin.get_url:
     url: "https://www.simonstalenhag.se/tftfbig/{{ item }}.jpg"
     dest: /home/{{ user }}/Images/SimonStalenhag/tftf_{{ item }}.jpg
@@ -33,6 +43,7 @@
   loop: "{{ range(4, 56) | list }}"
 
 - name: Download more wallpapers
+  when: wallpaper_directory.stat.exists == 0
   ansible.builtin.get_url:
     url: "https://www.simonstalenhag.se/bilderbig/{{ item }}.jpg"
     dest: /home/{{ user }}/Images/SimonStalenhag/
