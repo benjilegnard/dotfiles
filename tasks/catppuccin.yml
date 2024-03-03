@@ -11,6 +11,7 @@
       - fonts-hack
       - fonts-noto-color-emoji
       - gnome-themes-extra
+      - gnome-settings-daemon
       - libgtk-4-1
     install_recommends: false
     state: present
@@ -196,11 +197,15 @@
     - gtk.css
     - gtk-dark.css
 
-- name: Enable theme in profile
+- name: Enable theme in profile and rc files
   ansible.builtin.lineinfile:
-    path: /home/{{ user }}/.profile
+    path: /home/{{ user }}/{{ item }}
     line: export GTK_THEME="{{ gtk_theme }}"
     create: true
+  loop:
+    - .profile
+    - .zshrc
+    - .bashrc
 
 - name: Enable theme in settings
   ansible.builtin.lineinfile:

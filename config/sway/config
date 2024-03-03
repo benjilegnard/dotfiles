@@ -304,4 +304,6 @@ bar {
 
 include /etc/sway/config.d/*
 
+# Import gsettings
+exec_always import-gsettings
 

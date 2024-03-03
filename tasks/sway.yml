@@ -41,7 +41,7 @@
     - wofi
     - foot
 
-- name: Copy configuration file for wofi
+- name: Copy configuration files for wofi
   ansible.builtin.copy:
     src: ./config/wofi/{{ item }}
     dest: /home/{{ user }}/.config/wofi/
@@ -53,13 +53,16 @@
     - style.css
     - wofi-emoji
 
-- name: Copy configuration file for sway
+- name: Copy configuration files for sway
   ansible.builtin.copy:
-    src: ./config/sway/config
+    src: ./config/sway/{{ item }}
     dest: /home/{{ user }}/.config/sway/
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
+  loop:
+    - config
+    - import-gsettings
 
 - name: Copy configuration file for swaylock
   ansible.builtin.copy:
