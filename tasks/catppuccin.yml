@@ -9,6 +9,7 @@
     name:
       - fonts-font-awesome
       - fonts-hack
+      - fonts-noto-color-emoji
     install_recommends: false
     state: present
 

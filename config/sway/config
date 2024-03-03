@@ -17,6 +17,7 @@ set $right l
 set $term foot
 set $browser firefox
 set $ide code
+set $emoji_picker ~/.config/wofi/wofi-emoji
 
 ### Launchers
 
@@ -33,9 +34,6 @@ exec blueman-applet
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # set $menu rofi -show drun | xargs swaymsg exec --
 set $menu wofi --show drun -I | xargs swaymsg exec --
-
-# emoji picker
-bindsym $mod+z exec /home/b.legrand/.config/wofi/wofi-emoji
 
 include /etc/sway/config-vars.d/*
 
@@ -140,9 +138,12 @@ input type:touchpad {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec zenity --question && swaymsg exit
+    # Screenshots with grimshot
     bindsym --to-code $mod+Print exec 'grimshot copy area'
-
+    # Lock the screen
     bindsym $mod+Shift+o exec 'swaylock -f -c 000000'
+    # Emoji picker
+    bindsym $mod+e exec $emoji_picker
 
 #
 # Moving around:
