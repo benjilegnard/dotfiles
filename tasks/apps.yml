@@ -10,8 +10,14 @@
     - shotwell
     - openscad
     - inkscape
-    # - blender
-    - krita
+    - pavucontrol
     - thunar
     - thunar-archive-plugin
     - thunar-media-tags-plugin
+
+- name: Remove GUI tools
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - krita

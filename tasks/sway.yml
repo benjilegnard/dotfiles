@@ -5,7 +5,6 @@
   ansible.builtin.apt:
     name:
       - sway
-      - grimshot
       - slurp
       - sway-notification-center
       - swayidle
@@ -99,4 +98,21 @@
     group: "{{ user }}"
     mode: "755"
 
-# todo: wl-imirror
+# Install grimshot from github repo (not in devuan)
+
+- name: Install grimshot from sway-contrib
+  ansible.builtin.git:
+    repo: https://github.com/OctopusET/sway-contrib.git
+    version: "1.9"
+    dest: ./themes/sway-contrib
+    clone: true
+    update: true
+    depth: 1
+
+- name: Copy
+  ansible.builtin.copy:
+    src: ./themes/sway-contrib/grimshot
+    dest: /usr/local/bin/
+    owner: root
+    group: root
+    mode: "755"
