@@ -1,15 +1,27 @@
 ---
+- name: Get neovim repository signing key
+  ansible.builtin.get_url:
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9DBB0BE9366964F134855E2255F96FCF8231B6DD
+    dest: /etc/apt/keyrings/neovim.asc
+    mode: '0644'
+    force: true
+  become: true
+
 - name: Add neovim repository
   ansible.builtin.apt_repository:
-    repo: ppa:neovim-ppa/stable
-    codename: mantic
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/neovim.asc] https://ppa.launchpadcontent.net/neovim-ppa/unstable/ubuntu lunar main"
     filename: "neovim"
+    state: present
   become: true
 
 - name: Install neovim
   become: true
   apt:
     name:
+      # treesitter dependencies
+      - gcc
+      - g++
+      # main package
       - neovim
     state: present
 
