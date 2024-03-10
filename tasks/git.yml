@@ -1,0 +1,31 @@
+---
+- name: Install git
+  ansible.builtin.apt:
+    name:
+      - git
+    state: present
+
+- name: Copy git config directory
+  ansible.builtin.copy:
+    src: ./config/git/.gitconfig
+    dest: /home/{{ user }}/.gitconfig
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
+
+# Install lazygit from github repo
+- name: Unarchive lazygit binary
+  vars:
+    lazygit_version: "0.40.2"
+    lazygit_arch: "x86_64"
+  ansible.builtin.unarchive:
+    src: https://github.com/jesseduffield/lazygit/releases/download/v{{ lazygit_version }}/lazygit_{{ lazygit_version }}_Linux_{{ lazygit_arch }}.tar.gz
+    dest: /usr/local/bin
+    remote_src: true
+    extra_opts:
+      - lazygit
+    creates: /usr/local/bin/lazygit
+    owner: root
+    group: root
+    mode: "755"
+
