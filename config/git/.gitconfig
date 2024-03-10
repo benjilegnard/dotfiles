@@ -1,0 +1,48 @@
+[user]
+        name = Benjamin Legrand
+        email = benjilegnard@protonmail.com
+[core]
+        editor = vim
+        autocrlf = input
+[init]
+        defaultBranch = main
+[pull]
+        rebase = true
+[push]
+        autoSetupRemote = true
+        default = current
+[fetch]
+        prune = true
+[rebase]
+        autoSquash = true
+        autoStash = true
+[diff]
+        tool = vimdiff
+        guitool = vimdiff
+[init]
+        defaultBranch = main
+[status]
+        showUntrackedFiles = all
+[alias]
+        co = checkout
+        ci = commit
+        st = status
+        br = branch
+        sw = switch
+        df = diff
+        last = log -1 HEAD
+        unstage = reset HEAD --
+        amend = commit --amend
+        undo = reset --soft HEAD^
+        oups = commit --amend --no-edit --all
+        type = cat-file -t
+        dump = cat-file -p
+        lg = log --oneline --decorate --graph
+        lga = log --oneline --decorate --graph --all
+        lgb = log --oneline --decorate --graph --branches
+        lgc = log --oneline --decorate --graph --branches --tags --remotes
+        lgg = log --oneline --decorate --graph --glob-ref
+        lgr = log --oneline --decorate --graph --remotes
+        lgs = log --oneline --decorate --graph --show-signature
+        lgt = log --oneline --decorate --graph --tags
+        lgu = log --oneline --decorate --graph --upstream
