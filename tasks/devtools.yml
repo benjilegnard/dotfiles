@@ -1,0 +1,54 @@
+---
+
+# nvm / node
+- name: Install nvm
+  ansible.builtin.shell: |
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+  args:
+    creates: /home/{{ user }}/.nvm
+  become: false
+
+- name: Add nvm init to rc files
+  ansible.builtin.blockinfile:
+    path: /home/{{ user }}/.{{ item }}
+    block: |
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    create: true
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
+  loop:
+    - bashrc
+    - zshrc
+
+# rust
+
+- name: Install rust
+  ansible.builtin.shell: |
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  args:
+    creates: /home/{{ user }}/.cargo
+  become: false
+
+- name: Add cargo bin to path
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/.{{ item }}
+    line: export PATH="$HOME/.cargo/bin:$PATH"
+    create: true
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
+  loop:
+    - bashrc
+    - zshrc
+
+# pnpm
+
+- name: Install pnpm
+  ansible.builtin.shell: |
+    curl -fsSL https://get.pnpm.io/install.sh | sh -
+  args:
+    creates: /home/{{ user }}/.pnpm
+  become: false
