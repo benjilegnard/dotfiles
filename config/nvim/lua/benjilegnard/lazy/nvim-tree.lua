@@ -14,7 +14,7 @@ return {
             },
             filters = {
                 dotfiles = true
-            },
+            }
         })
 
         vim.keymap.set('n', '<leader>tv', vim.cmd.NvimTreeToggle, {

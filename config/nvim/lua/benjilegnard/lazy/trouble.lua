@@ -3,7 +3,7 @@ return {
     config = function()
         require("trouble").setup({
             auto_preview = false,
-            auto_fold = true,
+            auto_fold = true
         })
 
         vim.keymap.set("n", "<leader>tt", function()

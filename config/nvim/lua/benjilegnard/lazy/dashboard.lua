@@ -19,18 +19,18 @@ return {
             config = {
                 header = custom_header,
                 week_header = {
-                    enable = true,
+                    enable = true
                 },
                 shortcut = {},
-                footer = {},
+                footer = {}
             },
             hide = {
                 footer = true,
                 laststatus = true,
                 tabline = true,
-                winbar = true,
+                winbar = true
             },
-            theme = 'hyper'
+            theme = 'doom'
         })
     end
 }

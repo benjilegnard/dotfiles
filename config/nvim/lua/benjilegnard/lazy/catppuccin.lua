@@ -1,5 +1,4 @@
 -- setup must be called before loading
-
 return {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -39,19 +38,22 @@ return {
             color_overrides = {},
             custom_highlights = {},
             integrations = {
-                cmp = true,
-                gitsigns = true,
-                nvimtree = true,
-                treesitter = true,
-                dashboard = true,
-                notify = true,
                 barbar = true,
-                fidget = true,
+                cmp = true,
+                dap = true,
+                dap_ui = true,
+                dashboard = true,
                 dropbar = true,
-
+                fidget = true,
+                gitsigns = true,
+                neogit = true,
+                neotest = true,
+                notify = true,
+                nvimtree = true,
                 telescope = {
                     enabled = true
                 },
+                treesitter = true,
                 which_key = true
                 -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
             }
