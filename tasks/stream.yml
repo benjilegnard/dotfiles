@@ -1,0 +1,36 @@
+---
+- name: Get obs-studio repository signing key on ubuntu
+  ansible.builtin.get_url:
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBC7345F522079769F5BBE987EFC71127F425E228
+    dest: /etc/apt/keyrings/obsproject.asc
+    mode: '0644'
+    force: true
+  become: true
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Add obsproject repository on ubuntu
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/obsproject.asc] https://ppa.launchpadcontent.net/obsproject/obs-studio/ubuntu mantic main"
+    filename: "obsproject"
+    state: present
+  become: true
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Install obs-studio
+  become: true
+  ansible.builtin.apt:
+    name:
+      # some optional obs dependencies
+      - xdg-desktop-portal
+      - xdg-desktop-portal-wlr
+      - xdg-desktop-portal-gtk
+      - pipewire
+      - wireplumber
+      # required obs dependencies
+      - v4l2loopback-dkms
+      - ffmpeg
+      # main package
+      - obs-studio
+    state: present
+  when: ansible_distribution == 'Ubuntu'
+

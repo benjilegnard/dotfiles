@@ -20,5 +20,7 @@
       ansible.builtin.include_tasks: tasks/neovim.yml
     - name: Install and configure git
       ansible.builtin.include_tasks: tasks/git.yml
+    - name: Install obs and streaming tools
+      ansible.builtin.include_tasks: tasks/stream.yml
     - name: Download wallpapers
       ansible.builtin.include_tasks: tasks/wallpapers.yml

@@ -130,3 +130,12 @@
   loop:
     - .zshrc
     - .bashrc
+
+- name: Set current desktop in rc files
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/{{ item }}
+    line: export XDG_CURRENT_DESKTOP=sway
+    create: true
+  loop:
+    - .zshrc
+    - .bashrc
