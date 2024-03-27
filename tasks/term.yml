@@ -118,3 +118,50 @@
     repo: https://github.com/tmux-plugins/tpm.git
     dest: /home/{{ user }}/.tmux/plugins/tpm
     version: 99469c4
+
+# Zsh
+
+- name: Clone and install zsh
+  ansible.builtin.git:
+    repo: https://github.com/ohmyzsh/ohmyzsh.git
+    dest: /home/{{ user }}/.oh-my-zsh
+    version: 1d09c6b
+
+- name: Copy zsh configuration
+  ansible.builtin.blockinfile:
+    path: /home/{{ user }}/.zshrc
+    marker: ""
+    block: |
+      export ZSH="$HOME/.oh-my-zsh"
+      ZSH_THEME=""
+      plugins=(
+        git
+        ng
+        nvm
+        npm
+        tmux
+      )
+      source $ZSH/oh-my-zsh.sh
+    create: true
+# Aliases
+
+- name: Set aliases
+  ansible.builtin.blockinfile:
+    path: /home/{{ user }}/{{ item }}
+    marker: ""
+    block: |
+      alias lg="lazygit"
+      alias h="history"
+      alias c="clear"
+      alias e="exit"
+      alias v="nvim"
+      alias s="source ~/.zshrc"
+      alias p="cd ~/projects"
+      alias f="find . -name"
+      alias l="ls -l"
+      alias ll="ls -la"
+      alias up="cd .."
+    create: true
+  loop:
+    - .zshrc
+    - .bashrc
