@@ -36,13 +36,15 @@ exec blueman-applet
 set $menu wofi --show drun -I | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
+# Cursor config
+seat seat0 xcursor_theme Qogir 24
 
 # Import gsettings
-exec_always import-gsettings
-
-exec_always init-xdg
-
-exec_always start-keyring
+exec_always ~/.config/sway/import-gsettings
+# Setup XDG for screen sharing
+exec_always ~/.config/sway/init-xdg
+# Start gnome keyring daemon
+exec_always ~/.config/sway/start-keyring
 
 # Notification Daemon
 exec swaync
