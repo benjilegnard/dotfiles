@@ -237,12 +237,12 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: @mantle;
+    background-color: @crust;
     color: @text;
 }
 
 #idle_inhibitor.activated {
-    background-color: @surface1;
+    background-color: @text;
     color: @crust;
 }
 

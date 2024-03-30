@@ -6,9 +6,27 @@
     "spacing": 10, // Gaps between modules (4px)
     "margin": "10 10 0 10",
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "sway/window"],
-    "modules-center": [ "custom/media","clock"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "sway/language", "battery", "tray"],
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode",
+      "sway/scratchpad",
+      "sway/window"
+    ],
+    "modules-center": [
+      "custom/media",
+      "clock"
+    ],
+    "modules-right": [
+      "idle_inhibitor",
+      "pulseaudio",
+      // "network",
+      // "cpu",
+      // "memory",
+      // "temperature",
+      "sway/language",
+      "battery",
+      "tray"
+    ],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
