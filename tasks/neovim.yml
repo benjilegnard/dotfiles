@@ -6,6 +6,7 @@
     mode: '0644'
     force: true
   become: true
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Add neovim repository
   ansible.builtin.apt_repository:
@@ -13,10 +14,11 @@
     filename: "neovim"
     state: present
   become: true
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Install neovim
   become: true
-  apt:
+  ansible.builtin.apt:
     name:
       # treesitter dependencies
       - gcc
