@@ -13,6 +13,8 @@
     - curl
     - zip
     - fzf
+    - w3m
+    - w3m-img
 
 - name: Configure zsh
   ansible.builtin.shell: |
@@ -165,3 +167,21 @@
   loop:
     - .zshrc
     - .bashrc
+
+# w3m
+- name: Ensure w3m config directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/.w3m
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
+- name: Copy w3m configuration
+  ansible.builtin.copy:
+    src: ./config/w3m/keymap.w3m
+    dest: /home/{{ user }}/.w3m/keymap.w3m
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
+
