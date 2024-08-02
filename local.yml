@@ -10,6 +10,8 @@
   tasks:
     - name: Install CLI tools, configure shell and tmux
       ansible.builtin.include_tasks: tasks/term.yml
+    - name: Install yazi file manager
+      ansible.builtin.include_tasks: tasks/yazi.yml
     - name: Install and configure sway and waybar
       ansible.builtin.include_tasks: tasks/sway.yml
     - name: Install common GUI apps
