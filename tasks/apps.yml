@@ -11,9 +11,6 @@
     - openscad
     - inkscape
     - pavucontrol
-    - thunar
-    - thunar-archive-plugin
-    - thunar-media-tags-plugin
 
 - name: Remove GUI tools
   ansible.builtin.apt:
@@ -22,3 +19,7 @@
   loop:
     - krita
     - foot
+    - thunar
+    - thunar-archive-plugin
+    - thunar-media-tags-plugin
+

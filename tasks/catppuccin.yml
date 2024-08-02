@@ -274,3 +274,33 @@
   become: true
   register: tty_theme
   when: qogir_icon_check.stat.exists == 0
+
+#
+# Yazi https://github.com/catppuccin/yazi
+#
+- name: Clone catppuccin/yazi
+  ansible.builtin.git:
+    repo: https://github.com/catppuccin/yazi.git
+    version: 37dec9b
+    dest: ./temp/catppuccin/yazi
+    clone: true
+    update: true
+    depth: 1
+
+- name: Ensure yazi config directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/.config/yazi
+    recurse: true
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
+- name: Copy mocha theme files for yazi
+  ansible.builtin.copy:
+    src: ./temp/catppuccin/yazi/themes/mocha.toml
+    dest: /home/{{ user }}/.config/yazi/theme.toml
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
