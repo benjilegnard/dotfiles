@@ -12,6 +12,7 @@
     - zsh
     - curl
     - zip
+    - zoxide
     - fzf
     - w3m
     - w3m-img
@@ -70,6 +71,28 @@
   ansible.builtin.copy:
     src: ./config/starship.toml
     dest: /home/{{ user }}/.config/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
+
+# Zoxide
+
+- name: Add zoxide init to bashrc
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/.bashrc
+    line: 'eval "$(zoxide init bash)"'
+    state: present
+    create: true
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "644"
+
+- name: Add zoxide init to zshrc
+  ansible.builtin.lineinfile:
+    path: /home/{{ user }}/.zshrc
+    line: 'eval "$(zoxide init zsh)"'
+    state: present
+    create: true
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "644"
