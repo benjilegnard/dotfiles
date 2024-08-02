@@ -167,6 +167,9 @@
         tmux
       )
       source $ZSH/oh-my-zsh.sh
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
     create: true
 # Aliases
 
@@ -187,6 +190,9 @@
       alias ll="ls -la"
       alias up="cd .."
     create: true
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
   loop:
     - .zshrc
     - .bashrc
