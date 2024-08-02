@@ -22,7 +22,7 @@
 - name: Clone catppuccin/grub
   ansible.builtin.git:
     repo: https://github.com/catppuccin/grub.git
-    version: 803c5df
+    version: 88f6124
     dest: ./temp/catppuccin/grub
     accept_hostkey: true
     clone: true
@@ -115,7 +115,7 @@
 - name: Clone catppuccin/waybar
   ansible.builtin.git:
     repo: https://github.com/catppuccin/waybar.git
-    version: f74ab1e
+    version: ee8ed32
     dest: ./temp/catppuccin/waybar
     clone: true
     update: true
@@ -156,7 +156,7 @@
 
 - name: Download and install catppuccin/gtk to themes
   ansible.builtin.unarchive:
-    src: https://github.com/catppuccin/gtk/releases/download/v0.7.1/{{ gtk_theme }}.zip
+    src: https://github.com/catppuccin/gtk/releases/download/v1.0.3/{{ gtk_theme }}.zip
     dest: /home/{{ user }}/.themes/
     creates: /home/{{ user }}/.themes/{{ gtk_theme }}
     remote_src: true
