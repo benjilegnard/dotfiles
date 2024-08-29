@@ -45,6 +45,7 @@ return {
                 dashboard = true,
                 dropbar = true,
                 fidget = true,
+                flash = true,
                 gitsigns = true,
                 neogit = true,
                 neotest = true,
