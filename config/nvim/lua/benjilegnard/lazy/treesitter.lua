@@ -6,7 +6,7 @@ return {
             -- A list of parser names, or "all"
             ensure_installed = {"angular", "bash", "c", "css", "csv", "dart", "elixir", "elm", "erlang", "go", "groovy",
                                 "graphql", "html", "java", "javascript", "jsdoc", "json", "kotlin", "lua", "make",
-                                "prisma", "rust", "toml", "typescript", "vimdoc", "yaml"},
+                                "prisma", "rust", "toml", "typescript", "vimdoc", "yaml", "zig"},
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
