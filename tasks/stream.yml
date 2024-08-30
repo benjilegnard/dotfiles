@@ -10,7 +10,7 @@
 
 - name: Add obsproject repository on ubuntu
   ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/obsproject.asc] https://ppa.launchpadcontent.net/obsproject/obs-studio/ubuntu mantic main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/obsproject.asc] https://ppa.launchpadcontent.net/obsproject/obs-studio/ubuntu noble main"
     filename: "obsproject"
     state: present
   become: true
