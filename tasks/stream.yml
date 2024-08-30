@@ -34,3 +34,39 @@
     state: present
   when: ansible_distribution == 'Ubuntu'
 
+#
+# Catppuccin theme for obs https://github.com/catppuccin/obs
+#
+- name: Check if theme is installed
+  ansible.builtin.stat:
+    path: /home/{{ user }}/.config/obs-studio/themes
+  register: obs_theme_check
+
+- name: Clone catppuccin/obs
+  ansible.builtin.git:
+    repo: https://github.com/catppuccin/obs.git
+    version: e7c4fcf
+    dest: ./temp/catppuccin/obs
+    clone: true
+    update: true
+    depth: 1
+  when: obs_theme_check.stat.exists == false
+
+- name: Ensure obs config directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/.config/obs-studio/themes
+    recurse: true
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+  when: obs_theme_check.stat.exists == false
+
+- name: Copy mocha theme file for obs
+  ansible.builtin.copy:
+    src: ./temp/catppuccin/obs/themes
+    dest: /home/{{ user }}/.config/obs-studio/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+  when: obs_theme_check.stat.exists == false
