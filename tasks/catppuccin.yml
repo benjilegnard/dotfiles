@@ -139,6 +139,35 @@
     mode: "755"
 
 #
+# btop https://github.com/catppuccin/btop
+#
+- name: Clone catppuccin/btop
+  ansible.builtin.git:
+    repo: https://github.com/catppuccin/btop.git
+    version: 21b8d59
+    dest: ./temp/catppuccin/btop
+    clone: true
+    update: true
+    depth: 1
+
+- name: Ensure btop config directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/.config/btop/themes
+    recurse: true
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
+- name: Copy mocha theme file for btop
+  ansible.builtin.copy:
+    src: ./temp/catppuccin/btop/themes/catppuccin_mocha.theme
+    dest: /home/{{ user }}/.config/btop/themes/catppuccin.theme
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
+#
 # GTK https://github.com/catppuccin/gtk
 #
 - name: Set gtk theme variable

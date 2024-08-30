@@ -5,6 +5,7 @@
     state: present
   loop:
     - htop
+    - btop
     - tmux
     - jq
     - git
