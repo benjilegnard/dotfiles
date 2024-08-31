@@ -19,6 +19,12 @@
 #
 # GRUB
 #
+- name: Check if grub is installed
+  ansible.builtin.stat:
+    path: /boot/grub/grub.cfg
+  register: grub_install_check
+
+
 - name: Clone catppuccin/grub
   ansible.builtin.git:
     repo: https://github.com/catppuccin/grub.git
@@ -28,6 +34,7 @@
     clone: true
     update: true
     depth: 1
+  when: not grub_install_check.stat.exists
 
 - name: Copy theme files for grub
   become: true
@@ -37,6 +44,7 @@
     owner: root
     group: root
     mode: "755"
+  when: not grub_install_check.stat.exists
 
 - name: Check if theme is configured in the boot command
   ansible.builtin.lineinfile:
@@ -47,6 +55,7 @@
   check_mode: true
   register: grub_theme_check
   changed_when: false
+  when: not grub_install_check.stat.exists
 
 - name: Enable the theme in grub default configuration
   become: true
@@ -54,15 +63,13 @@
     path: /etc/default/grub
     line: GRUB_THEME="/usr/share/grub/themes/catppuccin-mocha-grub-theme/theme.txt"
     # create: true
-  when: grub_theme_check.found == 0
+  when: not grub_install_check.stat.exists and grub_theme_check.found is defined and grub_theme_check.found == 0
 
 - name: Update grub if theme was added
   become: true
   ansible.builtin.command: grub-mkconfig -o /boot/grub/grub.cfg
-  when: grub_theme_check.found == 0
+  when: not grub_install_check.stat.exists and grub_theme_check.found is defined and grub_theme_check.found == 0
   changed_when: true
-
-# todo; maybe also check and set GRUB_GFXMODE=1920x1080
 
 #
 # TTY : https://github.com/catppuccin/tty
@@ -91,7 +98,7 @@
     chdir: ./temp/catppuccin/tty
     cmd: ./generate.sh mocha
   register: tty_theme
-  when: grub_tty_check.found == 0
+  when: grub_tty_check.found is defined and grub_tty_check.found == 0
 
 # FIXME; this does not work when config exists
 - name: Configure tty theme in CRUB_CMDLINE_LINUX options
@@ -101,13 +108,13 @@
     backrefs: true
     regexp: "^(GRUB_CMDLINE_LINUX=\")(.*\")$"
     line: '\1 {{ tty_theme.stdout }}\2'
-  when: grub_tty_check.found == 0
+  when: grub_tty_check.found is defined and grub_tty_check.found == 0 and grub_install_check.stat.exists
 
 - name: Update grub if tty config was added
   become: true
   ansible.builtin.command:
     cmd: grub-mkconfig -o /boot/grub/grub.cfg
-  when: grub_tty_check.found == 0
+  when: grub_tty_check.found is defined and grub_tty_check.found == 0 and grub_install_check.stat.exists
 
 #
 # Waybar https://github.com/catppuccin/waybar
@@ -253,7 +260,7 @@
     depth: 1
 
 - name: Check if qogir icon theme is installed
-  ansible.builtin.stat: 
+  ansible.builtin.stat:
     path: /usr/share/icons/Qogir
   register: qogir_icon_check
 
