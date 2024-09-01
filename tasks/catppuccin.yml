@@ -179,7 +179,7 @@
 #
 - name: Set gtk theme variable
   ansible.builtin.set_fact:
-    gtk_theme: Catppuccin-Mocha-Standard-Teal-Dark
+    gtk_theme: catppuccin-mocha-teal-standard+default
 
 - name : Ensure user themes directory exists
   ansible.builtin.file:
