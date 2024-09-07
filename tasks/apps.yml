@@ -21,3 +21,4 @@
     state: absent
   loop:
     - krita
+    - foot

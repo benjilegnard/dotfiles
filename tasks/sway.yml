@@ -16,7 +16,7 @@
       - wl-clipboard
       - xdg-desktop-portal-wlr
       - wofi
-      - foot
+      - kitty
       - zenity
       - gnome-keyring
       - pipewire
@@ -40,7 +40,7 @@
     - swaync
     - waybar
     - wofi
-    - foot
+    - kitty
 
 - name: Copy configuration files for wofi
   ansible.builtin.copy:
@@ -94,13 +94,18 @@
     - style.css
     - config
 
-- name: Copy configuration file for foot
+- name: Copy configuration file for kitty
   ansible.builtin.copy:
-    src: ./config/foot/foot.ini
-    dest: /home/{{ user }}/.config/foot/
+    src: ./config/kitty/kitty.conf
+    dest: /home/{{ user }}/.config/kitty/
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
+
+- name: Update alternatives, set kitty as default terminal emulator
+  community.general.alternatives:
+    name: x-terminal-emulator
+    path: /usr/bin/kitty
 
 # Install grimshot from github repo (not in devuan)
 
