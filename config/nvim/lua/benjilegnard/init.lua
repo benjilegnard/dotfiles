@@ -11,4 +11,3 @@ vim.opt.termguicolors = true
 require('benjilegnard.lazy-init')
 require('benjilegnard.remap')
 require('benjilegnard.set')
-

@@ -31,7 +31,7 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "tailwindcss",
-                "tsserver",
+                "ts_ls",
                 "vimls",
                 "zls",
             },
@@ -101,15 +101,20 @@ return {
                 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf, desc = 'Go to definition' })
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = ev.buf, desc = 'Show hover' })
                 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = ev.buf, desc = 'Go to implementation' })
-                vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = ev.buf, desc = 'Show signature help' })
-                vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, { buffer = ev.buf, desc = 'Add workspace folder' })
-                vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, { buffer = ev.buf, desc = 'Remove workspace folder' })
+                vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help,
+                    { buffer = ev.buf, desc = 'Show signature help' })
+                vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder,
+                    { buffer = ev.buf, desc = 'Add workspace folder' })
+                vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder,
+                    { buffer = ev.buf, desc = 'Remove workspace folder' })
                 vim.keymap.set('n', '<space>wl', function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { buffer = ev.buf, desc = 'List workspace folders' })
-                vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, { buffer = ev.buf, desc = 'Go to type definition' })
+                vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition,
+                    { buffer = ev.buf, desc = 'Go to type definition' })
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename' })
-                vim.keymap.set({'n', 'v'}, '<space>ca', vim.lsp.buf.code_action, { buffer = ev.buf, desc = 'Code action' })
+                vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
+                    { buffer = ev.buf, desc = 'Code action' })
                 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = ev.buf, desc = 'Go to references' })
                 vim.keymap.set('n', '<space>f', function()
                     vim.lsp.buf.format {
@@ -118,6 +123,5 @@ return {
                 end, { buffer = ev.buf, desc = 'Format' })
             end
         })
-
     end
 }
