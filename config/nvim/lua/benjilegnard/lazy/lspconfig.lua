@@ -28,6 +28,7 @@ return {
                 "eslint",
                 "html",
                 "jsonls",
+                "ltex",
                 "lua_ls",
                 "rust_analyzer",
                 "tailwindcss",
