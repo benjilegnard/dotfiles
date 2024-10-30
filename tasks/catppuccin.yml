@@ -215,10 +215,13 @@
 - name: Copy settings.ini for gtk
   ansible.builtin.copy:
     src: ./config/gtk/settings.ini
-    dest: /home/{{ user }}/.config/gtk-3.0/settings.ini
+    dest: /home/{{ user }}/.config/{{ item }}/settings.ini
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
+  loop:
+    - gtk-3.0
+    - gtk-4.0
 
 - name: Create symbolic links for gtk-4.0
   ansible.builtin.file:
@@ -253,7 +256,7 @@
 - name: Clone Qogir icon theme
   ansible.builtin.git:
     repo: https://github.com/vinceliuice/Qogir-icon-theme.git
-    version: "2023-06-05"
+    version: 0b90905
     dest: ./temp/qogir-icon-theme
     clone: true
     update: true
