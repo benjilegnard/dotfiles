@@ -1,0 +1,24 @@
+[global]
+frame_color = "#89b4fa"
+separator_color = frame
+follow = keyboard
+gap_size = 10
+icon_theme = "Qogir-Dark"
+icon_path = "/usr/share/icons/Qogir-Dark/16/"
+enable_recursive_icon_lookup = true
+font = "Hack Nerd Font 11"
+frame_width = 2
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_critical]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
+

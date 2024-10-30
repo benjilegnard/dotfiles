@@ -24,3 +24,5 @@
       ansible.builtin.include_tasks: tasks/stream.yml
     - name: Download wallpapers
       ansible.builtin.include_tasks: tasks/wallpapers.yml
+    - name: Install i3 and related packages
+      ansible.builtin.include_tasks: tasks/i3.yml

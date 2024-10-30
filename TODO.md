@@ -20,6 +20,11 @@ Add apps and their PPA :
 - [x] foot
 - [x] gtk theme
 
+## i3 :
+- [x] finish i3 config
+- [x] automate dunst install
+- [ ] install rofi-emoji <https://github.com/Mange/rofi-emoji/tree/3-x-stable>
+
 ## Some other things to do:
 
 - [ ] ansible lint
@@ -28,4 +33,4 @@ Add apps and their PPA :
 - [x] automate zsh install
 - [ ] automate zsh-nvm plugin install
 - [ ] add nvm script
-- [ ] automate starship install
+- [x] automate starship install
