@@ -1,11 +1,11 @@
-# dotfiles
+# Benji Le Gnard's dot files
 
 This repository holds my dotfiles configuration and ansible playbook config to instantiate a new linux dev machine very quickly.
 
-Also the main goal is to version my config files and centralize my favorite tools. Expect frequent changes.
+Also, the main goal is to version my config files and centralize my favorite tools. Expect frequent changes.
 
 > [!WARNING]
-> I DECLINE ALL RESPONSABILITY IF YOU USE THIS ON YOUR SYSTEM AND FUCK UP YOUR COMPUTER
+> I DECLINE ALL RESPONSIBILITY IF YOU USE THIS ON YOUR SYSTEM AND FUCK UP YOUR COMPUTER
 
 ## What's inside
 
@@ -18,7 +18,7 @@ A desktop environment with:
 
 Wallpapers from [Simon Stalhenag](http://www.simonstalenhag.se/)
 
-Common apps: firefox, gimp, inkscape, audacity, shotcut, openscad, blender, shotwell, mvp, rhytmbox and more 
+Common apps: firefox, gimp, inkscape, audacity, shotcut, openscad, blender, shotwell, mvp, rhytmbox and more
 
 Everything is themed to the [catppuccin color palette](https://catppuccin.com/)
 
@@ -35,7 +35,7 @@ __Wofi__:
 ## Quick setup
 
 1. Install a debian-based linux distribution, prefer a server version, without a desktop environment
-2. Install ansible, git, gpg and sudo : 
+2. Install ansible, git, gpg and sudo :
 ```
 su -
 apt-get update && apt-get install -y ansible git sudo gpg

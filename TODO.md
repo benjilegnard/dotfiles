@@ -1,4 +1,4 @@
-# TODOLIST
+# TO DO LIST
 
 Add apps and their PPA :
 
