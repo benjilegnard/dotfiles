@@ -1,0 +1,28 @@
+---
+- name: Install SDDM
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - sddm
+    - qml-module-qtquick-layouts
+    - qml-module-qtquick-controls2
+    - libqt6svg6
+
+- name: Download and extract zip theme file
+  ansible.builtin.unarchive:
+    src: https://github.com/catppuccin/sddm/releases/download/v1.0.0/catppuccin-mocha.zip
+    dest: /usr/share/sddm/themes/
+    remote_src: true
+    mode: "0755"
+
+- name: Set theme in sddm configuration
+  ansible.builtin.blockinfile:
+    path: /etc/sddm.conf
+    block: |
+      [Theme]
+      Current=catppuccino-mocha
+    create: true
+    marker: ""
+    mode: "0644"
+    become: true

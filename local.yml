@@ -12,6 +12,8 @@
       ansible.builtin.include_tasks: tasks/term.yml
     - name: Install and configure sway and waybar
       ansible.builtin.include_tasks: tasks/sway.yml
+    - name: Install and configure SDDM
+      ansible.builtin.include_tasks: tasks/sddm.yml
     - name: Install common GUI apps
       ansible.builtin.include_tasks: tasks/apps.yml
     - name: Install and configure catppuccin theme
