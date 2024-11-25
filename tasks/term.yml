@@ -5,11 +5,9 @@
     state: present
   loop:
     - htop
-    - btop
     - tmux
     - jq
     - git
-    - tig
     - zsh
     - curl
     - zip
@@ -17,6 +15,15 @@
     - fzf
     - w3m
     - w3m-img
+
+- name: Remove old or unused cli packages from base install
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - btop
+    - tig
+    - texinfo
 
 - name: Configure zsh
   ansible.builtin.shell: |

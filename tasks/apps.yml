@@ -4,7 +4,7 @@
     name: "{{ item }}"
     state: present
   loop:
-    - xournal
+    - mpv
     - gimp
     - rhythmbox
     - shotwell
@@ -15,10 +15,13 @@
     - thunar-archive-plugin
     - thunar-media-tags-plugin
 
-- name: Remove GUI tools
+- name: Remove old apps and other bloatware
   ansible.builtin.apt:
     name: "{{ item }}"
     state: absent
   loop:
     - krita
     - foot
+    - byobu
+    - vlc
+    - xournal
