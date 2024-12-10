@@ -9,10 +9,6 @@
     path: /home/{{ user }}/Images/SimonStalenhag/
   register: wallpaper_directory
 
-- name: Debug wallpaper directory
-  ansible.builtin.debug:
-    var: wallpaper_directory.stat.exists
-
 - name: Ensure wallpaper directory exists
   ansible.builtin.file:
     path: /home/{{ user }}/Images/SimonStalenhag/
@@ -41,6 +37,18 @@
     group: "{{ user }}"
     mode: "755"
   loop: "{{ range(4, 56) | list }}"
+
+- name: Download "swedish machines" wallpapers
+  when: wallpaper_directory.stat.exists == 0
+  vars:
+    leftpadindex: "{{ '%02d' | format(item|int) }}"
+  ansible.builtin.get_url:
+    url: https://www.simonstalenhag.se/4k/svema_{{ leftpadindex }}_big.jpg
+    dest: /home/{{ user }}/Images/SimonStalenhag/svema_{{ leftpadindex }}_big.jpg
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+  loop: "{{ range(1, 47) | difference([19]) | list }}"
 
 - name: Download more wallpapers
   when: wallpaper_directory.stat.exists == 0
