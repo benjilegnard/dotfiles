@@ -144,3 +144,15 @@
   loop:
     - .zshrc
     - .bashrc
+
+- name: Autostart sway on tty1 login
+  ansible.builtin.copy:
+    content: |
+      #!/bin/zsh
+      if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
+        exec sway
+      fi
+    dest: /home/{{ user }}/.zprofile
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
