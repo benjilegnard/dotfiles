@@ -1,8 +1,8 @@
+-- flash.nvim lets you navigate your code with search labels, enhanced character motions, and Treesitter integration.
+-- @see https://github.com/folke/flash.nvim
 return {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    ---@type Flash.Config
-    opts = {},
+	"folke/flash.nvim",
+	event = "VeryLazy",
     -- stylua: ignore
     keys = {
         { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },

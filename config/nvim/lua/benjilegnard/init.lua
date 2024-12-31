@@ -8,6 +8,6 @@ vim.g.loaded_netrwPlugin = 1
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
-require('benjilegnard.lazy-init')
-require('benjilegnard.remap')
-require('benjilegnard.set')
+require("benjilegnard.lazy-init")
+require("benjilegnard.remap")
+require("benjilegnard.set")
