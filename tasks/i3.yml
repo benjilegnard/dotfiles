@@ -11,6 +11,9 @@
       - feh
       - arandr
       - dunst
+      - maim
+      - xclip
+      - xdotool
     install_recommends: false
     state: present
 
