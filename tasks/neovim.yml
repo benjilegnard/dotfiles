@@ -16,10 +16,11 @@
   become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: Install neovim
+- name: Install neovim and dependencies
   become: true
   ansible.builtin.apt:
     name:
+      - ripgrep
       # treesitter dependencies
       - gcc
       - g++
