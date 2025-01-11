@@ -1,6 +1,5 @@
+-- various plugins
 return {
-	-- copilot, disabled because i hate it.
-	-- "github/copilot.vim",
 
 	-- editorconfig support
 	"gpanders/editorconfig.nvim",
@@ -13,16 +12,5 @@ return {
 	},
 
 	-- barbar is the tabline at the top
-	-- disabled because i'm trying to not use tabs anymore
-	-- "romgrk/barbar.nvim"
-
-	-- display keys for streaming
-	{
-		"nvchad/showkeys",
-		cmd = "ShowkeysToggle",
-		opts = {
-			timeout = 1,
-			maxkeys = 5,
-		},
-	},
+	"romgrk/barbar.nvim",
 }
