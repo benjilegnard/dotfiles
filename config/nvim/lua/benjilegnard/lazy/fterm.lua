@@ -1,3 +1,4 @@
+-- terminal embedded inside neovim
 return {
 	"numToStr/FTerm.nvim",
 	config = function()
@@ -9,10 +10,10 @@ return {
 			border = "single",
 		})
 
-		vim.keymap.set("n", "<leader>i", '<CMD>lua require("FTerm").toggle()<CR>', {
+		vim.keymap.set("n", "<leader>ti", '<CMD>lua require("FTerm").toggle()<CR>', {
 			desc = "Toggle Terminal",
 		})
-		vim.keymap.set("t", "<leader>i", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', {
+		vim.keymap.set("t", "<leader>ti", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', {
 			desc = "Toggle Terminal",
 		})
 	end,
