@@ -65,7 +65,7 @@ return {
                     vim.fn["vsnip#anonymous"](args.body)
                 end,
             },
-            ]]
+        ]]
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 				["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),

@@ -1,4 +1,1 @@
-return {
-	"mfussenegger/nvim-dap",
-	"rcarriga/nvim-dap-ui",
-}
+return { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" }

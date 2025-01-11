@@ -6,13 +6,16 @@ return {
 			auto_fold = true,
 		})
 
-		vim.keymap.set("n", "<leader>tr", function()
-			require("trouble").toggle()
+		vim.keymap.set("n", "[t", function()
+			require("trouble").prev({
+				skip_groups = true,
+				jump = true,
+			})
 		end, {
-			desc = "Toggle Trouble",
+			desc = "Previous Trouble",
 		})
 
-		vim.keymap.set("n", "[t", function()
+		vim.keymap.set("n", "]t", function()
 			require("trouble").next({
 				skip_groups = true,
 				jump = true,
@@ -20,14 +23,38 @@ return {
 		end, {
 			desc = "Next Trouble",
 		})
-
-		vim.keymap.set("n", "]t", function()
-			require("trouble").previous({
-				skip_groups = true,
-				jump = true,
-			})
-		end, {
-			desc = "Previous Trouble",
-		})
 	end,
+	cmd = "Trouble",
+	keys = {
+		{
+			"<leader>xx",
+			"<cmd>Trouble diagnostics toggle focus=true<cr>",
+			desc = "Diagnostics (Trouble)",
+		},
+		{
+			"<leader>xX",
+			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			desc = "Buffer Diagnostics (Trouble)",
+		},
+		{
+			"<leader>cs",
+			"<cmd>Trouble symbols toggle focus=true<cr>",
+			desc = "Symbols (Trouble)",
+		},
+		{
+			"<leader>cl",
+			"<cmd>Trouble lsp toggle focus=true win.position=right<cr>",
+			desc = "LSP Definitions / references / ... (Trouble)",
+		},
+		{
+			"<leader>xL",
+			"<cmd>Trouble loclist toggle<cr>",
+			desc = "Location List (Trouble)",
+		},
+		{
+			"<leader>xQ",
+			"<cmd>Trouble qflist toggle<cr>",
+			desc = "Quickfix List (Trouble)",
+		},
+	},
 }
