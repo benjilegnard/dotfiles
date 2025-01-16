@@ -102,7 +102,7 @@ return {
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "Go to declaration" })
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "Go to definition" })
-				vim.keymap.set("n", "<space>K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Show hover" })
+				vim.keymap.set("n", "<space>gh", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Show hover" })
 				vim.keymap.set(
 					"n",
 					"gi",
@@ -144,7 +144,7 @@ return {
 					{ buffer = ev.buf, desc = "Code action" }
 				)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "Go to references" })
-				vim.keymap.set("n", "<space>f", function()
+				vim.keymap.set("n", "<space>fr", function()
 					vim.lsp.buf.format({
 						async = true,
 					})

@@ -6,6 +6,11 @@ return {
 			command_palette = false,
 			long_message_to_split = true,
 		},
+		lsp = {
+			hover = {
+				enabled = false,
+			},
+		},
 	},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
