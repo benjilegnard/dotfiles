@@ -5,6 +5,18 @@ return {
 		require("lualine").setup({
 			options = {
 				theme = "catppuccin",
+				disabled_filetypes = {
+					"NvimTree",
+					"dashboard",
+					-- trouble
+					"trouble",
+					"qf",
+					-- undotree
+					"undotree",
+					"diff",
+					-- diffview
+					"DiffviewFiles",
+				},
 			},
 		})
 	end,
