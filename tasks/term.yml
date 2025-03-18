@@ -25,9 +25,9 @@
     - tig
     - texinfo
 
-- name: Configure zsh
-  ansible.builtin.shell: |
-    chsh -s $(which zsh) {{ user }}
+#- name: Configure zsh
+#  ansible.builtin.shell: |
+#    chsh -s $(which zsh) {{ user }}
 
 # starship
 

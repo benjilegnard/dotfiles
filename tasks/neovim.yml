@@ -10,7 +10,7 @@
 
 - name: Add neovim repository
   ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/neovim.asc] https://ppa.launchpadcontent.net/neovim-ppa/unstable/ubuntu lunar main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/neovim.asc] https://ppa.launchpadcontent.net/neovim-ppa/unstable/ubuntu oracular main"
     filename: "neovim"
     state: present
   become: true
