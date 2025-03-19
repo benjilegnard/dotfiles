@@ -146,6 +146,27 @@
     mode: "755"
 
 #
+# tmux: https://github.com/catppuccin/tmux
+# 
+- name: Ensure tmux plugins directory exists
+  ansible.builtin.file:
+    path: /home/{{ user }}/.config/tmux/plugins/catppuccin
+    recurse: true
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+
+- name: Clone catppuccin/tmux
+  ansible.builtin.git:
+    repo: https://github.com/catppuccin/tmux.git
+    version: v2.1.2
+    dest: /home/{{ user }}/.config/tmux/plugins/catppuccin
+    clone: true
+    update: true
+    depth: 1
+
+#
 # btop https://github.com/catppuccin/btop
 #
 - name: Clone catppuccin/btop
@@ -274,3 +295,6 @@
   become: true
   register: tty_theme
   when: qogir_icon_check.stat.exists == 0
+
+# Tmux theme
+
