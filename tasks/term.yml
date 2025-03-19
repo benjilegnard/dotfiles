@@ -154,11 +154,11 @@
 
 # Zsh
 
-- name: Clone and install zsh
+- name: Clone and install oh-my-zsh
   ansible.builtin.git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
     dest: /home/{{ user }}/.oh-my-zsh
-    version: 1d09c6b
+    version: f97e871
 
 - name: Copy zsh configuration
   ansible.builtin.blockinfile:
