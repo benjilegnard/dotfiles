@@ -1,0 +1,59 @@
+#!/bin/bash
+# wofi-unicode - A script to search and copy unicode characters using wofi  
+# Inspired by 
+# Table flipping from https://emoticoncentral.com/category/table-flipping
+wtype 0
+if [ $? -eq 0 ]
+then
+    sed '1,/^### DATA ###$/d' $0 | wofi --show dmenu -i -p 'select an unicode character' | cut -d ' ' -f 1 | tr -d '\n' | wtype -
+else
+    sed '1,/^### DATA ###$/d' $0 | wofi --show dmenu -i -p 'select an unicode character' | cut -d ' ' -f 1 | tr -d '\n' | wl-copy
+fi
+exit
+### DATA ###
+♠ spade suit symbol
+♣ club suit symbol
+♥ heart suit symbol
+♦ diamond suit symbol
+♤ white spade suit
+♧ white club suit
+♡ white heart suit
+♢ white diamond suit
+♚ black chess king
+♛ black chess queen
+♜ black chess rook
+♝ black chess bishop
+♞ black chess knight
+♟ black chess pawn
+♔ white chess king
+♕ white chess queen
+♖ white chess rook
+♗ white chess bishop
+♘ white chess knight
+♙ white chess pawn
+♨ hot springs
+♩ musical quarter note
+​ Zero Width Space
+(╯°□°）╯︵┻━┻ Flipping Tables
+(ノಠ益ಠ)ノ彡┻━┻ Raging Table Flip
+┻━┻︵\(°□°)/︵┻━┻ Flip All Tables!
+┬─┬ノ(º_ºノ) Put the table back
+ʕノ•ᴥ•ʔノ︵┻━┻ Bear flipping table
+┻━┻︵ヽ(`Д´)ﾉ︵┻━┻ Flip Tables!
+(┛◉Д◉) ┛彡┻━┻ Fuck this table
+(ノಥ,_｣ಥ)ノ彡┻━┻ Fuck this table 2
+¯\_(ツ)_/¯ Shrug
+ಠ_ಠ Look of disapproval
+¯\_(シ)_/¯ Shrug Alternate
+┐(￣ー￣)┌ Once Upon a Time, Nobody Gave A Fuck
+┌∩┐(◣_◢)┌∩┐ Eff You
+(⋟﹏⋞) Insecure Pain
+¯\(°_o)/¯ Dunno Lol
+(☉_☉) Very Surprised
+⚆_⚆ Roll Eyes
+ᕕ(ᐛ)ᕗ Run Dance
+(⊙‿⊙)(⊙‿⊙)(⊙‿⊙) Stalkers Staring at me
+(｡´‿｀♡) Blushing hearts
+(╥﹏╥) Tears Pouring
+
+

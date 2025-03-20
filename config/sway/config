@@ -18,6 +18,7 @@ set $term kitty
 set $browser firefox
 set $ide code
 set $emoji_picker ~/.config/wofi/wofi-emoji
+set $unicode_picker ~/.config/wofi/wofi-unicode
 
 ### Launchers
 
@@ -147,6 +148,8 @@ input type:touchpad {
     bindsym $mod+Shift+o exec 'swaylock -f -c 000000'
     # Emoji picker
     bindsym $mod+z exec $emoji_picker
+    # Unicode picker
+    bindsym $mod+u exec $unicode_picker
 
 #
 # Moving around:
