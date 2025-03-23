@@ -23,6 +23,7 @@
       - wireplumber
 #      - xwayland
       - seatd
+      - grim
     install_recommends: false
     state: present
 
