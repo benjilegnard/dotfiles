@@ -16,6 +16,10 @@ return {
 					"diff",
 					-- diffview
 					"DiffviewFiles",
+					-- avante
+					"Avante",
+					"AvanteSelectedFiles",
+					"AvanteInput",
 				},
 			},
 		})

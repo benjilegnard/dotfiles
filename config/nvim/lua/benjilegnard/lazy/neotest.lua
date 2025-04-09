@@ -23,13 +23,14 @@ return {
 						adapter = "lldb",
 					},
 				}),
+				require("neotest-vitest")({}),
 				require("neotest-rust")({
 					args = { "--no-capture" },
 					dap_adapter = "lldb",
 				}),
 			},
 		})
-		
+
 		local runNearest = function()
 			require("neotest").run.run()
 		end
@@ -43,19 +44,14 @@ return {
 		local runDebug = function()
 			require("neotest").run.run({ strategy = "dap" })
 		end
-		vim.keymap.set(
-			"n",
-			"<space>rd",
-			runDebug,
-			{ desc = "Run and debug nearest test" }
-		)
+		vim.keymap.set("n", "<space>rd", runDebug, { desc = "Run and debug nearest test" })
 
-		local runStopTest = function () 
+		local runStopTest = function()
 			require("neotest").run.stop()
 		end
 		vim.keymap.set("n", "<space>rs", runStopTest, { desc = "Stop nearest test run" })
 
-		local runOutput = function () 
+		local runOutput = function()
 			require("neotest").output.open()
 		end
 		vim.keymap.set("n", "<space>ro", runOutput, { desc = "Open test output" })
