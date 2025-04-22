@@ -6,7 +6,7 @@
     mode: '0644'
     force: true
   become: true
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '24.10'
 
 - name: Add obsproject repository on ubuntu
   ansible.builtin.apt_repository:
@@ -14,7 +14,7 @@
     filename: "obsproject"
     state: present
   become: true
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '24.10'
 
 - name: Install obs-studio
   become: true
@@ -32,7 +32,7 @@
       # main package
       - obs-studio
     state: present
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '24.10'
 
 #
 # Catppuccin theme for obs https://github.com/catppuccin/obs
