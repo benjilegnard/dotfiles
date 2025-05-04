@@ -18,31 +18,31 @@
     ],
     "modules-right": [
       "idle_inhibitor",
-      "pulseaudio",
       // "network",
-      // "cpu",
-      // "memory",
-      // "temperature",
+      "cpu",
+      "memory",
+      "temperature",
       "sway/language",
+      "pulseaudio",
       "battery",
       "tray"
     ],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
+     "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": false,
     //     "format": "{name}: {icon}",
-    //     "format-icons": {
+         "format-icons": {
     //         "1": "",
     //         "2": "",
     //         "3": "",
     //         "4": "",
     //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+     },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -53,7 +53,7 @@
         }
     },
     "sway/language": {
-	"format": "{} "
+	      "format": "{} "
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -79,7 +79,7 @@
     "clock": {
         "tooltip-format": "calendar",
         "format-alt": "{:%Y-%m-%d} ",
-	"format": "{:%H:%M} "
+	      "format": "{:%H:%M} "
     },
     "cpu": {
         "format": "{usage}% ",
