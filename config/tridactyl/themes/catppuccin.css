@@ -1,0 +1,142 @@
+:root {
+    /* Catppuccin Colors */
+    --bg: #1e1e2e;
+    --currentline: #302D41;
+    --fg: #d9e0ee;
+    --comment: #575268;
+    --flamingo: #f2cdcd;
+    --mauve: #ddb6f2;
+    --pink: #f5c2e7;
+    --maroon: #e8a2af;
+    --red: #f28fad;
+    --peach: #f8bd96;
+    --yellow: #fae3b0;
+    --green: #abe9b3;
+    --teal: #b5e8e0;
+    --blue: #96cdfb;
+    --sky: #89dceb;
+    --lavender: #c9cbff;
+    --rosewater: #f5e0dc;
+
+
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+    --overlay2: #9399b2;
+    --overlay1: #7f849c;
+    --overlay0: #6c7086;
+    --surface2: #585b70;
+    --surface1: #45475a;
+    --surface0: #313244;
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+
+    --font: "Hack", monospace;
+
+    /* vimium theme uses colors: flamingo, peach, rosewater, green, blue, lavender */
+    --tridactyl-fg: var(--fg);
+    --tridactyl-bg: var(--bg);
+    --tridactyl-url-fg: var(--rosewater);
+    --tridactyl-url-bg: var(--bg);
+    --tridactyl-highlight-box-bg: var(--currentline);
+    --tridactyl-highlight-box-fg: var(--fg);
+    --tridactyl-of-fg: var(--blue);
+    --tridactyl-of-bg: var(--crust);
+    --tridactyl-cmdl-fg: var(--text);
+    --tridactyl-cmdl-bg: var(--mantle);
+    --tridactyl-cmdl-font-family: var(--font);
+    --tridactyl-cmplt-font-family: var(--font);
+    --tridactyl-cmplt-bg: transparent;
+    --tridactyl-hintspan-font-family: var(--font);
+
+    /* Hint character tags */
+    --tridactyl-hintspan-fg: var(--bg) !important;
+    --tridactyl-hintspan-bg: var(--green) !important;
+
+    /* Element Highlights */
+    --tridactyl-hint-active-fg: none;
+    --tridactyl-hint-active-bg: none;
+    --tridactyl-hint-active-outline: none;
+    --tridactyl-hint-bg: none;
+    --tridactyl-hint-outline: none;
+
+    /* Status indicator */
+    --tridactyl-status-bg: var(--text);
+    --tridactyl-status-fg: var(--crust);
+    --tridactyl-status-font-family: "Hack", monospace;
+    --tridactyl-status-font-size: 14px;
+    --tridactyl-status-border-radius: 14px;
+}
+
+#completions {
+    order: 1;
+}
+
+#completions .sectionHeader {
+    background: var(--crust);
+    opacity: 0.9;
+    border: none !important;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+#command-line-holder {
+    order: 0;
+    padding: 5px !important;
+    border: solid 1px var(--blue);
+    border-radius: 4px;
+    margin-right: 1px;
+}
+
+span.TridactylHint {
+    border-radius: 2px !important;
+    box-shadow: 0 0 5px rgb(0, 0, 0, 0.5) !important;
+    text-transform: lowercase !important;
+}
+
+.TridactylStatusIndicator {
+    right: 0 !important;
+    bottom: 0 !important;
+    text-transform: uppercase !important;
+    padding: 0 10px !important;
+    border: none !important;
+    font-weight: bold;
+}
+
+.TridactylModeinput {
+    background: var(--green) !important;
+}
+
+.TridactylModeignore {
+    background: var(--mantle) !important;
+}
+
+.TridactylModehint {
+    background: var(--yellow) !important;
+}
+
+.TridactylModecommand {
+    background: var(--peach) !important;
+}
+
+.TridactylModecommand {
+    background: var(--purple) !important;
+}
+
+#cmdline_iframe:not(.hidden) {
+    width: 80% !important;
+    left: 10% !important;
+    right: 10% !important;
+    top: 20% !important;
+    bottom: 20% !important;
+    padding: 10px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(2px);
+    border-radius: 10px !important;
+    background: rgb(24, 24, 37, .8) !important;
+}
+
+:root.TridactylOwnNamespace {
+    background: var(--mantle);
+}

@@ -1,0 +1,6 @@
+set theme catppuccin
+set editorcmd kitty nvim
+
+bind J tabnext
+bind K tabprev
+
