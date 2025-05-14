@@ -93,7 +93,7 @@
     mode: "755"
   loop:
     - style.css
-    - config
+    - config.jsonc
 
 - name: Copy configuration file for kitty
   ansible.builtin.copy:
