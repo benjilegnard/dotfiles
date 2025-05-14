@@ -18,7 +18,7 @@
     ],
     "modules-right": [
       "idle_inhibitor",
-      // "network",
+      "network",
       "cpu",
       "memory",
       "temperature",
