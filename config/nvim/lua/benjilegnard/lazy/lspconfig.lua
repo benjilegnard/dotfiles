@@ -12,8 +12,12 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
-		local capabilities =
-			vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
+		local capabilities = vim.tbl_deep_extend(
+			"force",
+			{},
+			vim.lsp.protocol.make_client_capabilities(),
+			cmp_lsp.default_capabilities()
+		)
 
 		require("mason").setup()
 		require("mason-lspconfig").setup({
@@ -119,8 +123,18 @@ return {
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "Go to declaration" })
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "Go to definition" })
 				vim.keymap.set("n", "<space>gh", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Show hover" })
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = ev.buf, desc = "Go to implementation" })
-				vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "Show signature help" })
+				vim.keymap.set(
+					"n",
+					"gi",
+					vim.lsp.buf.implementation,
+					{ buffer = ev.buf, desc = "Go to implementation" }
+				)
+				vim.keymap.set(
+					"n",
+					"<C-k>",
+					vim.lsp.buf.signature_help,
+					{ buffer = ev.buf, desc = "Show signature help" }
+				)
 				vim.keymap.set(
 					"n",
 					"<space>wa",
@@ -143,7 +157,12 @@ return {
 					{ buffer = ev.buf, desc = "Go to type definition" }
 				)
 				vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "Rename" })
-				vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Code action" })
+				vim.keymap.set(
+					{ "n", "v" },
+					"<space>ca",
+					vim.lsp.buf.code_action,
+					{ buffer = ev.buf, desc = "Code action" }
+				)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "Go to references" })
 				vim.keymap.set("n", "<space>fr", function()
 					vim.lsp.buf.format({
