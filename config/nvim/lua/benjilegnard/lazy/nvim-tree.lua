@@ -6,8 +6,13 @@ return {
 				sorter = "case_sensitive",
 			},
 			view = {
-				side = "right",
-				width = 25,
+				float = {
+					open_win_config = {
+						relative = "win",
+						width = 50,
+					},
+					enable = true,
+				},
 			},
 			renderer = {
 				group_empty = true,
