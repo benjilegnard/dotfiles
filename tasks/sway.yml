@@ -21,7 +21,7 @@
       - gnome-keyring
       - pipewire
       - wireplumber
-#      - xwayland
+      - network-manager-applet
       - seatd
       - grim
     install_recommends: false
