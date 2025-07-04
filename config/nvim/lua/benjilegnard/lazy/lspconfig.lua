@@ -30,6 +30,7 @@ return {
 				"html",
 				"jsonls",
 				"lua_ls",
+				"ltex_plus",
 				"rust_analyzer",
 				"tailwindcss",
 				"ts_ls",
