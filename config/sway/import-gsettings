@@ -14,4 +14,4 @@ gsettings set "$gnome_schema" icon-theme "$icon_theme"
 gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
 gsettings set "$gnome_schema" font-name "$font_name"
 # default apps
-gesttings set org.gnome.desktop.default-applications.terminal exec '/usr/bin/kitty'
+gsettings set org.gnome.desktop.default-applications.terminal exec '/usr/bin/kitty'
