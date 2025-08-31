@@ -5,7 +5,8 @@ This repository holds my dotfiles configuration and ansible playbook config to i
 Also, the main goal is to version my config files and centralize my favorite tools. Expect frequent changes.
 
 > [!WARNING]
-> I DECLINE ALL RESPONSIBILITY IF YOU USE THIS ON YOUR SYSTEM AND FUCK UP YOUR COMPUTER
+> I DECLINE ALL RESPONSIBILITY IF YOU USE THIS ON YOUR SYSTEM AND FUCK UP YOUR COMPUTER !
+> This is my setup, it works on my machine, might not work on yours.
 
 ## What's inside
 
@@ -45,3 +46,7 @@ adduser <your_username> sudo
 ```
 ansible-pull --ask-become-pass -U https://github.com/benjilegnard/dotfiles.git -e "user=<your_username> uid=1000"
 ```
+
+## Manual scripts
+
+
