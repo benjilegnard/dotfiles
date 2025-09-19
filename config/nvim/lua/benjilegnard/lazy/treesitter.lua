@@ -37,6 +37,9 @@ return {
 				"markdown_inline",
 			},
 
+			-- List of parsers to ignore installing (or "all")
+			ignore_install = {},
+
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,
 
