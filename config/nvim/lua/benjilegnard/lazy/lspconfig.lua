@@ -39,13 +39,13 @@ return {
 			},
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup({
+					vim.lsp.config(server_name).setup({
 						capabilities = capabilities,
 					})
 				end,
 
 				["lua_ls"] = function()
-					local lspconfig = require("lspconfig")
+					local lspconfig = vim.lsp.config()
 					lspconfig.lua_ls.setup({
 						capabilities = capabilities,
 						settings = {
@@ -121,12 +121,18 @@ return {
 
 				-- Buffer local mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
+				vim.keymap.set(
+					"n",
+					"gO",
+					vim.lsp.buf.document_symbol,
+					{ buffer = ev.buf, desc = "Open document symbols" }
+				)
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "Go to declaration" })
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "Go to definition" })
 				vim.keymap.set("n", "<space>gh", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Show hover" })
 				vim.keymap.set(
 					"n",
-					"gi",
+					"gri",
 					vim.lsp.buf.implementation,
 					{ buffer = ev.buf, desc = "Go to implementation" }
 				)
@@ -153,19 +159,14 @@ return {
 				end, { buffer = ev.buf, desc = "List workspace folders" })
 				vim.keymap.set(
 					"n",
-					"<space>D",
+					"grt",
 					vim.lsp.buf.type_definition,
 					{ buffer = ev.buf, desc = "Go to type definition" }
 				)
-				vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "Rename" })
-				vim.keymap.set(
-					{ "n", "v" },
-					"<space>ca",
-					vim.lsp.buf.code_action,
-					{ buffer = ev.buf, desc = "Code action" }
-				)
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "Go to references" })
-				vim.keymap.set("n", "<space>fr", function()
+				vim.keymap.set("n", "grn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "Rename" })
+				vim.keymap.set({ "n", "v" }, "gra", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Code action" })
+				vim.keymap.set("n", "grr", vim.lsp.buf.references, { buffer = ev.buf, desc = "Go to references" })
+				vim.keymap.set("n", "grf", function()
 					vim.lsp.buf.format({
 						async = true,
 					})
