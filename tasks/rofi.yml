@@ -1,0 +1,91 @@
+---
+# Rofi, a dmenu replacement, I use it to launch everything
+- name: Install rofi-wayland and its dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - meson
+      - ninja
+      - rofi-dev
+      - autoconf
+      - automake
+      - libtool-bin
+      - libtool
+
+# Rofi, wayland fork
+- name: Check if rofi is installed
+  ansible.builtin.stat:
+    path: /urs/local/bin/rofi
+  register: rofi_install_check
+
+- name: Clone rofi-wayland
+  ansible.builtin.git:
+    repo: https://github.com/in0ni/rofi-wayland.git
+    version: 18db5b1
+    dest: ./temp/rofi-wayland
+    accept_hostkey: true
+    clone: true
+    update: true
+    depth: 1
+  when: not rofi_install_check.stat.exists
+
+- name: Install rofi-wayland
+  when: not rofi_install_check.stat.exists
+
+#TODO finish install 
+
+# Emoji picker
+- name: Clone rofi-emoji
+
+# Unicode character picker 
+
+- name: Check if rofi-charpick is installed
+  ansible.builtin.stat:
+    path: /home/{{ user }}/.local/bin/charpick
+  register: charpick_install_check
+
+- name: Clone rofi-charpick
+  ansible.builtin.git:
+    repo: https://github.com/benjilegnard/rofi-charpick.git
+    version: 4961d46
+    dest: ./temp/rofi-charpick
+    accept_hostkey: true
+    clone: true
+    update: true
+    depth: 1
+  when: not charpick_install_check.stat.exists
+
+- name: Copy charpick script
+  ansible.builtin.copy:
+    src: ./temp/rofi-charpick/charpick.sh
+    dest: /home/{{ user }}/.local/bin/charpick
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+  when: not charpick_install_check.stat.exists
+
+# Power menu
+- name: Check if rofi-power_menu is installed
+  ansible.builtin.stat:
+    path: /home/{{ user }}/.local/bin/rofi-power-menu
+  register: power_menu_install_check
+
+- name: Clone rofi-power-menu
+  ansible.builtin.git:
+    repo: https://github.com/jluttine/rofi-power-menu.git
+    version: 700fb6c
+    dest: ./temp/rofi-power-menu
+    accept_hostkey: true
+    clone: true
+    update: true
+    depth: 1
+  when: not power_menu_install_check.stat.exists
+
+- name: Copy power_menu script
+  ansible.builtin.copy:
+    src: ./temp/rofi-power-menu/rofi-power-menu
+    dest: /home/{{ user }}/.local/bin/rofi-power-menu
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
+  when: not power_menu_install_check.stat.exists

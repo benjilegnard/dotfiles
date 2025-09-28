@@ -124,11 +124,13 @@ input type:touchpad {
     # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
+    # Start the main launcher
     bindsym $mod+d exec $menu
-    # Rofi launchers
+    # Emoji picker
     bindsym $mod+z exec $emoji_picker
+    # Unicode picker
     bindsym $mod+u exec $unicode_picker
+    # Window switcher
     bindsym $mod+w exec $window_tabber
 
     # Start firefox
