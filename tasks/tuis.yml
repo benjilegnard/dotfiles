@@ -1,0 +1,53 @@
+---
+# Rust and tui's
+#
+
+- name: Check if cargo is installed
+  ansible.builtin.shell: command -v cargo
+  register: cargo_exists
+  ignore_errors: yes
+
+- name: Install latest rust and rust-analyser
+  when: cargo_exists is failed
+  ansible.builtin.shell: >
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    && . "{{ ansible_facts['user_dir'] }}/.cargo/env"
+    && rustup component add rust-analyzer
+  args:
+    creates: "{{ ansible_facts['user_dir'] }}/.cargo/env"
+  tags:
+    - rust
+
+- name: source ~/.cargo/env in shell rc files
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_facts['user_dir'] }}/{{ item }}"
+    line: source ~/.cargo/env
+    create: true
+  loop:
+    - .zshrc
+    - .bashrc
+
+- name: Install TUIs with cargo
+  args:
+    executable: /bin/bash
+  loop:
+    - serpl
+    - flamelens
+    - jwt-ui
+    - openapi-tui
+    - presenterm
+    - tokei
+    - diskonaut
+    - difftastic
+    - serie
+    - eza
+    - ripgrep
+    - serpl
+    - procs
+    - zoxide
+  ansible.builtin.shell: >
+    . "{{ ansible_facts['user_dir'] }}/.cargo/env"
+    && cargo install --locked "{{ item }}"
+
+# - name: Clone helix
+

@@ -8,6 +8,8 @@
         update_cache: true
       changed_when: false
   tasks:
+    - name: Install TUI tools, mainly rust ones
+      ansible.builtin.include_tasks: tasks/tuis.yml
     - name: Install CLI tools, configure shell and tmux
       ansible.builtin.include_tasks: tasks/term.yml
     - name: Install and configure sway and waybar

@@ -25,6 +25,25 @@ Wallpapers from [Simon Stalhenag](http://www.simonstalenhag.se/)
 
 Common apps: firefox, gimp, inkscape, audacity, shotcut, openscad, blender, shotwell, mvp, rhytmbox and more
 
+TUI tools:
+- [difftastic](https://github.com/Wilfred/difftastic#readme) : better git diffs
+- [diskonaut](https://github.com/imsnif/diskonaut#diskonaut) : disk usage
+- [eza](https://github.com/eza-community/eza#readme) : a modern `ls` replacement
+- [flamelens](https://github.com/YS-L/flamelens#flamelens) : a flamegraph viewer
+- [jwt-ui](https://github.com/jwt-rs/jwt-ui#readme) : a jwt decoder
+- [lazydocker](https://github.com/jesseduffield/lazygit#readme) : docker tui
+- [lazygit](https://github.com/jesseduffield/lazygit#readme) : git tui
+- [lazyjj](https://github.com/Cretezy/lazyjj#lazyjj) : jj tui
+- [openapi-tui](https://github.com/zaghaghi/openapi-tui#demo) : browse swagger / openapi files
+- [presenterm](https://github.com/mfontanini/presenterm#presenterm) : presentation tool in the terminal
+- [procs](https://github.com/dalance/procs) : a replacement for `ps`
+- [ripgrep](https://github.com/BurntSushi/ripgrep#readme) : a better grep
+- [serie](https://github.com/lusingander/serie#serie) : rich git commit graph viewer
+- [serpl](https://github.com/yassinebridi/serpl#serpl) : search and replace interface
+- [tokei](https://github.com/xampprocky/tokei#tokei-%E6%99%82%E8%A8%88) : list code stats
+- [yazi](https://github.com/sxyazi/yazi#readme) : a finder-like file manager & browser
+- [zoxide](https://github.com/ajeetdsouza/zoxide#zoxide) : faster and smarter `cd`
+
 Everything is themed to the [catppuccin color palette](https://catppuccin.com/)
 
 ## Screenshots
