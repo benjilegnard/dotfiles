@@ -4,8 +4,16 @@
   become: true
   ansible.builtin.apt:
     name:
-      - sway
+      - at-spi2-core
+      - gnome-keyring
+      - grim
+      - kitty
+      - network-manager-applet
+      - pipewire
+      - rofi
+      - seatd
       - slurp
+      - sway
       - sway-notification-center
       - swayidle
       - swaylock
@@ -13,17 +21,11 @@
       - wayland-protocols
       - wdisplays
       - wf-recorder
-      - wl-clipboard
-      - xdg-desktop-portal-wlr
-      - wofi
-      - kitty
-      - zenity
-      - gnome-keyring
-      - pipewire
       - wireplumber
-      - network-manager-applet
-      - seatd
-      - grim
+      - wl-clipboard
+      - wtype
+      - xdg-desktop-portal-wlr
+      - zenity
     install_recommends: false
     state: present
 
@@ -40,20 +42,24 @@
     - swaylock
     - swaync
     - waybar
-    - wofi
+    - rofi
     - kitty
 
-- name: Copy configuration files for wofi
+- name: Copy configuration files for rofi
   ansible.builtin.copy:
-    src: ./config/wofi/{{ item }}
-    dest: /home/{{ user }}/.config/wofi/
+    src: ./config/rofi/config.rasi
+    dest: /home/{{ user }}/.config/rofi/
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
-  loop:
-    - config
-    - style.css
-    - wofi-emoji
+
+- name: Copy theme file for rofi
+  ansible.builtin.copy:
+    src: ./config/rofi/catppuccin-mocha.rasi
+    dest: /home/{{ user }}/.local/share/rofi/themes/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
 
 - name: Copy configuration files for sway
   ansible.builtin.copy:

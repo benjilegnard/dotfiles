@@ -1,0 +1,664 @@
+α	alpha (ga)
+β	beta (gb)
+γ	gamma (gg)
+δ	delta (gd)
+ε	epsilon (ge)
+ζ	zeta (gz)
+η	eta (gh)
+θ	theta (gj)
+ι	iota (gi)
+κ	kappa (gk)
+λ	lambda (gl)
+μ	mu (gm)
+ν	nu (gn)
+ξ	xi (gx)
+ο	omicron (go)
+π	pi (gp)
+ρ	rho (gr)
+σ	sigma (gs)
+τ	tau (gt)
+υ	upsilon (gu)
+φ	phi (gf)
+χ	chi (gq)
+ψ	psi (gy)
+ω	omega (gw)
+
+Α	Alpha (gA)
+Β	Beta (gB)
+Γ	Gamma (gg)
+Δ	Delta (gD)
+Ε	Epsilon (gE)
+Ζ	Zeta (gZ)
+Η	Eta (gH)
+Θ	Theta (gJ)
+Ι	Iota (gI)
+Κ	Kappa (gK)
+Λ	Lambda (gL)
+Μ	Mu (gM)
+Ν	Nu (gN)
+Ξ	Xi (gX)
+Ο	Omicron (gO)
+Π	Pi (gP)
+Ρ	Rho (gR)
+Σ	Sigma (gS)
+Τ	Tau (gT)
+Υ	Upsilon (gU)
+Φ	Phi (gF)
+Χ	Chi (gQ)
+Ψ	Psi (gY)
+Ω	Omega (gW)
+
+á	accent a (a')
+é	accent e (e')
+í	accent i (i')
+ó	accent o (o')
+ú	accent u (u')
+ñ	n tilde (n~)
+ñ	enie
+æ	ae
+Æ	AE
+ø	diameter
+
+ø	o with stroke (null set, /o\, \o/)
+þ	thorn
+¡	inverted exclamation mark !
+¿	inverted question mark  ?
+—	em dash (---)
+‽	interrobang (!?, ?!, sarcasm)
+
+∪	math union
+∩	math intersection
+∝	math proportional
+¬	math not
+≠	math not equal (!=, /=, neq)
+≡	math equivalence
+≜	math equal by definition
+≈	math approximately (~=)
+≅	math congruent (~=)
+≥	math greater equal
+≤	math less equal
+≪	math much less
+≪	math much more
+⊕	math or
+∈	math contains
+±	math plusorminus
+∀	math for every / for all
+∃	math there exists
+∄	math there does not exists
+∴	math therefore
+∵	math because since
+±	math minusorplus
+·	math middle dot
+×	math multiplication (xx)
+÷	math division
+¬	math gun
+⊥	math perpendicular
+x	math x variable
+∞	math infinite
+∞	88
+∘	math composition
+∘	middle hollow dot
+|	math vertical line
+†	math hermitian
+⊂	math proper subset
+⊆	math subset
+⊄	math not subset
+⊅	math not superset
+⊖	math symmetric difference
+∈	math element of
+∉	math not element of
+Ø	math empty set
+⊕	math circled plus oplus
+⇒	math implies
+⇔	math equivalent
+↔	math equivalent
+↔	math if and oly if
+≔	math defined as
+∫	math integral
+∮	math closed line integral
+∯	math closed surface integral
+∰	math closed volume integral
+⁄	//
+⁄	fraction slash
+
+↑	arrow up
+↓	arrow down
+←	arrow left (<-)
+→	arrow right (->)
+⇆	arrow left and right lr
+⇄	arrow right and left rl
+↵	arrow return
+↘	arrow downright
+↙	arrow downleft
+↗	arrow upright
+↖	arrow upleft
+↕	arrow up and down
+↔	arrow left and right
+✔	check mark
+✔	ok
+…	horizontal ellipsis (...)
+⋯	mid ellipsis
+⁝	vertical ellipsis
+⁝	tricolon
+⁝	vertical three dots
+⁞	vertical four dots
+“	left double quote (ldq)
+”	right double quote (rdq)
+’	right quote (rq)
+
+░	box drawing 1
+▒	box drawing 2
+▓	box drawing 3
+█	box drawing 4
+
+└	line drawing
+─	line drawing
+┘	line drawing
+│	line drawing
+┼	line drawing
+│	line drawing
+┌	line drawing
+─	line drawing
+┐	line drawing
+┴	line drawing
+
+┴	line drawing
+├	line drawing
+┤	line drawing
+┬	line drawing
+
+
+╚	double line drawing
+═	double line drawing
+╝	double line drawing
+║	double line drawing
+┼	double line drawing
+║	double line drawing
+╔	double line drawing
+═	double line drawing
+╗	double line drawing
+
+╩	double line drawing
+╠	double line drawing
+╣	double line drawing
+╦	double line drawing
+
+｢	left bracket
+｣	right bracket
+｢	left japanese quote
+｣	right japanse quote
+〉	right angle bracket
+〈	left angle bracket
+「	left corner bracket
+」	right corner bracket
+『	fat left corner bracket
+』	fat right corner bracket
+
+
+■	geometric black square
+□	geometric white square
+◼	geometric medium black square
+◻	geometric medium white square
+▪	geometric small black square
+▫	geometric small white square
+▲	geometric black triangle up
+△	geometric white triangle up
+▴	geometric small black triangle  up
+▵	geometric small white triangle  up
+▶	geometric black triangle right
+▷	geometric white triangle right
+▸	geometric small black triangle right
+▹	geometric small white triangle right
+◀	geometric black triangle left
+◁	geometric white triangle left
+◂	geometric small black triangle left
+◃	geometric small white triangle left
+▼	geometric black triangle down
+▽	geometric white triangle down
+▾	geometric small black triangle down
+▿	geometric small white triangle down
+◆	geometric black diamond
+◇	geometric white diamond
+◈	geometric black-in-white diamond
+◉	geometric black-in-white circle
+●	geometric black circle
+○	geometric white circle
+◌	geometric dotted circle
+
+◐	geometric circle left half black
+◑	geometric circle right half black
+◒	geometric circle bottom half black
+◓	geometric circle upper half black
+◔	geometric circle upper right quarter black
+◕	geometric circle all but left quarter black
+◜	geometric upper left circular arc
+◝	geometric upper right circular arc
+◞	geometric lower right circular arc
+◟	geometric lower left circular arc
+◠	geometric upper half circular arc
+◡	geometric lower half circular arc
+
+►	geomteric black right pointer
+◄	geomteric white right pointer
+
+★	solid star
+☆	hollow star
+✪	circled hollow star
+☯	yin yang
+°	circ
+°	degrees
+°	oo
+Å	angstroms
+Å	ao0
+™	tm
+™	trademark
+£	pound
+¥	yen
+¢	cents
+©	copyright
+©	CO
+®	registered
+®	CR
+µ	micron (,u,)
+¶	paragraph
+ℼ	super pi
+ℯ	euler
+𝒏	italic n
+n̈	spinal tap
+℃	celcius
+℉	farhenheit
+☣	biohazard
+☢	radioactive
+
+❤	heart
+
+¹	sup1
+²	sup2
+³	sup3
+⁴	sup4
+⁵	sup5
+⁶	sup6
+⁷	sup7
+⁸	sup8
+⁹	sup9
+⁰	sup0
+₁	sub1
+₂	sub2
+₃	sub3
+₄	sub4
+₅	sub5
+₆	sub6
+₇	sub7
+₈	sub8
+₉	sub9
+₀	sub0
+
+ⁿ	superscript n
+ⁱ	superscript i
+ᶿ	superscript theta
+
+₋	subscript minus -
+ₐ	subscript a
+ₑ	subscript e
+ₒ	subscript o
+ₓ	subscript x
+ₔ	subscript e inverted
+ₕ	subscript h
+ₖ	subscript k
+ₗ	subscript l
+ₘ	subscript m
+ₙ	subscript n
+ₚ	subscript p
+ₛ	subscript s
+ₜ	subscript t
+
+BaTiO₃	bto (batio3)
+TiO₂	tio2
+E = m·c²	e=mc2
+
+(っ´ω｀)っ	kaomoji hug r1
+⊂(´Д`⊂)	kaomoji hug l1
+(つﾟ⊿ﾟ)つ	kaomoji hug r2
+(っ^_^)っ	kaomoji hug r3
+(⊃｡•́‿•̀｡)⊃	kaomoji hug r4
+(っಠ‿ಠ)っ	kaomoji hug r5
+⊂(´• ω •`⊂)	kaomoji hug l2
+⊂(･ω･*⊂	kaomoji hug l3
+⊂(￣▽￣)⊃	kaomoji hug g
+(｡◕‿‿◕｡)	kaomoji mischevious
+(屮ﾟДﾟ)屮	kaomoji frustrated
+(ง •̀_•́)ง	kaomoji fight
+(ง ͠° ͟ʖ ͡°)ง	kaomoji fight srz
+L(° O °L)	kaomoji fightL
+(」＞＜)」	kaomoji fight2
+(งಠ_ಠ)ง	kaomoji fight
+σ( •̀ ω •́ σ)	kaomoji fight
+O-(`⌒´Q)	kaomoji fight
+Q(`⌒´Q)	kaomoji fight
+(`⌒*)O-(`⌒´Q)	kaomoji fight punch
+| (• ◡•)|	kaomoji fin adventure time
+¯\(°_o)/¯	kaomoji dunno
+┐( ﾟーﾟ)┌	kaomoji dunno2
+¯\(°◡ﾟ)/¯	kaomoji dunno3
+┐('～`；)┌	kaomoji dunno4
+¯\_(ツ)_/¯	kaomoji dunno5
+┐(￣ヘ￣)┌	kaomoji dunno6
+╮(￣_￣)╭	kaomoji dunno7
+╮(︶︿︶)╭	kaomoji dunno8
+┐( ˘ ､ ˘ )┌	kaomoji dunno9
+┐( ˘_˘ )┌	kaomoji dunno10
+(❍ᴥ❍ʋ)	kaomoji jake adventure time
+(ಠ_ಠ)	kaomoji wtf mad
+(ಥ_ಥ)	kaomoji crying
+(￣ω￣)	kaomoji smug
+（￣へ￣）	kaomoji smug2
+( °  ʖ ° )	kaomoji surprised nose
+( ͡° ͜ʖ ͡°)	kaomoji lenny
+ʕ ͡° ͜ʖ ͡°ʔ	kaomoji lenny with ears
+( ͡° ʖ̯ ͡°)	kaomoji lenny angry
+ʕ ͡° ʖ̯ ͡°ʔ	kaomoji lenny angry with ears
+( ͠° ͟ʖ ͡°)	kaomoji lenny skeptical
+( ͠° ͟ʖ ͠°)	kaomoji lenny very skeptical
+( ͡~ ͜ʖ ͡°)	kaomoji lenny wink
+( ° ͜ʖ͡°)╭∩╮	kaomoji lenny middle finger
+┐( ͡° ʖ̯ ͡°)┌	kaomoji lenny shrug
+( ͡☉ ͜ʖ ͡☉)	kaomoji lenny on drugs
+( ͡ᵔ ͜ʖ ͡ᵔ )	kaomoji lenny amused
+( ‾ ʖ̫ ‾)	kaomoji lenny sleeping
+(☭ ͜ʖ ☭)	kaomoji lenny delighted
+┐(ツ)┌	kaomoji shrug
+¯\_(ツ)_/¯	kaomoji shrug long arms
+ʕ•ᴥ•ʔ	kaomoji koala
+\ʕ•ᴥ•ʔ/	kaomoji koala celebrating
+✧٩(•w•๑)	kaomoji playful cat
+(っ´ω`c)♡	kaomoji cuddly
+(╯°□°)╯ ┻━┻	kaomoji tableflip
+ヾ(*´Д｀*)ﾉ	kaomoji singing
+╮ (.❛ᴗ❛.) ╭	kaomoji cute dunno
+٩( 'ω' )و	kaomoji pow cat
+(-_-;)	kaomoji nervous sweating
+(^.^)	kaomoji happy smile
+(◕‿◕)	kaomoji happy smile drugs
+(*´ω｀*)	kaomoji :3 blushing
+(　^ω^)	kaomoji :3
+(´；ω；｀)	kaomoji :3 sad
+(´・ω・｀)	kaomoji :3 surprised
+(ヽ´ω`)	kaomoji :3 goodbye
+(*´▽｀*)	kaomoji :3 blushing_2
+(^-^)	kaomoji happy
+( ´ー`)y─┛	kaomoji smoking
+(,,ﾟДﾟ)y─┛	kaomoji smoking omg
+
+=^.^=	kaomoji cat happy
+(=ﾟωﾟ=)	kaomoji cat :3
+(=^･ω･^=)	kaomoji cat
+( =ω=)..nyaa	kaomoji cat
+ଲ(ⓛ ω ⓛ)ଲ	kaomoji cat
+
+o_0	kaomoji surprised
+
+(´｡• ᵕ •｡`)	kaomoji cute smile
+(*¯︶¯*)	smiey smile satisfied
+(⌒_⌒;)	kaomoji nervous smile
+(ᵔ.ᵔ)	kaomoji tiny smile
+(*/ω＼)	kaomoji embarassed
+(⁄ ⁄•⁄ω⁄•⁄ ⁄)	kaomoji embarassed2
+(；￣Д￣)	kaomoji wtf
+(＃￣ω￣)	kaomoji wtf2
+=_=	kaomoji unimpressed
+(︶︹︺)	kaomoji unimpressed2
+(￣ヘ￣)	kaomoji unimpressed3
+(￣︿￣)	kaomoji unimpressed4
+凸(￣ヘ￣)	kaomoji unimpressed fu
+
+(＞﹏＜)	kaomoji sour giggle
+
+(益)	kaomoji angry
+( #｀Д´)	kaomoji angry scream
+(＃`Д´)	kaomoji angry scream2
+ヾ(`ヘ´)ﾉﾞ	kaomoji angry shakefist
+☆ｏ(＞＜；)○	kaomoji angry punch
+
+(ノ_<。)	kaomoji facepalm
+(｡╯︵╰｡)	kaomoji sad
+( ﾟ，_ゝ｀)	kaomoji sad cry nose
+(╥_╥)	kaomoji sad crying
+(╥﹏╥)	kaomoji sad crying2
+(っ˘̩╭╮˘̩)っ	kaomoji sad cry hug
+(｡•́︿•̀｡)	kaomoji sad
+
+
+σ(￣、￣〃)	kaomoji confused
+(・_・;)	kaomoji confused2
+(・・ ) ?	kaomoji confused3
+(￣_￣)・・・	kaomoji confused4
+(ー.ー;)	kaomoji confused5
+
+(￢_￢)	kaomoji doubt
+(￢‿￢)	kaomoji doubt
+(↼_↼)	kaomoji doubt
+(⇀_⇀)	kaomoji doubt
+
+ヽ(°〇°)ﾉ	kaomoji surprise
+(⊙_⊙)	kaomoji surprise
+(O_O;)	kaomoji surprise
+)	kaomoji surprise:(:౦ ‸ ౦
+(o_O) !	kaomoji surprise
+
+(*・ω・)ﾉ	kaomoji wave
+(￣▽￣)ノ	kaomoji wave
+(^-^*)/	kaomoji wave
+(´• ω •`)ﾉ	kaomoji wave
+( ´ ▽ ` )ﾉ	kaomoji wave
+~ヾ(・ω・)	kaomoji wave
+ヾ(^ω^*)	kaomoji wave
+(・_・)ノ	kaomoji wave
+(o´ω`o)ﾉ	kaomoji wave
+(⌒ω⌒)ﾉ	kaomoji wave
+(o´▽`o)ﾉ	kaomoji wave
+
+(^_−)	kaomoji wink
+(^_~)	kaomoji wink
+
+|ω･)ﾉ	kaomoji hide wave
+ヾ(･|	kaomoji hide wave
+┬┴┬┴┤･ω･)ﾉ	kaomoji hide wave
+|･ω･)	kaomoji hide_:3
+|д･)	kaomoji hide scared
+┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴	kaomoji hide lenny
+┬┴┬┴┤(･_├┬┴┬┴	kaomoji hide
+|ʘ‿ʘ)╯	kaomoji hide wave creepy
+
+ε=ε=ε=ε=┌(;￣▽￣)┘	kaomoji running
+ε=ε=┌( >_<)┘	kaomoji running
+ヽ(￣д￣;)ノ=3=3=3	kaomoji running
+ε===(っ≧ω≦)っ	kaomoji running hug
+。。。ミヽ(。＞＜)ノ	kaomoji running
+
+[(－－)]..zzZ	kaomoji sleep
+(－_－) zzZ	kaomoji sleep
+(∪｡∪)｡｡｡zzZ	kaomoji sleep
+(－ω－) zzZ	kaomoji sleep
+(￣ρ￣)..zzZZ	kaomoji sleep
+(－.－)...zzz	kaomoji sleep
+(＿ ＿*) Z z z	kaomoji sleep
+
+・ﾟ	kaomoji magic:╰( ͡° ͜ʖ ͡° )つ──☆*
+(ノ ˘_˘)ノ　ζ|||ζ　ζ|||ζ　ζ|||ζ	kaomoji magic
+(∩` ﾛ ´)⊃━炎炎炎炎炎	kaomoji magic
+
+(っ˘ڡ˘ς)	kaomoji food
+
+(〜￣▽￣)〜	kaomoji music
+〜(￣▽￣〜)	kaomoji music
+♪(/_ _ )/♪	kaomoji music
+└(＾＾)┐	kaomoji music
+┌(＾＾)┘	kaomoji music
+ヾ(⌐■_■)ノ♪	kaomoji music
+(~˘▽˘)~	kaomoji music
+~(˘▽˘~)	kaomoji music
+(~‾▽‾)~	kaomoji music
+~(˘▽˘)~	kaomoji music
+(〜￣△￣)〜	kaomoji music
+( ˘ ɜ˘) ♬ ♪ ♫	kaomoji music
+
+٩(ˊ〇ˋ*)و	kaomoji wake up
+(￣^￣)ゞ	kaomoji military salute
+(╯°益°)╯彡┻━┻	kaomoji furious tableflip
+( ╯°□°)╯ ┻━━┻	kaomoji tableflip
+
+
+(￣﹃￣)	kaomoji hungry
+
+3 」∠)_	kaomoji lying:_(
+∠( ᐛ 」∠)＿	kaomoji lying
+
+¿ʇnʍ	inverted wut
+
+	rebels
+	empire
+☭	soviet communist hammer and sickle
+
+Ａ	wide a
+Ｂ	wide b
+Ｃ	wide c
+Ｄ	wide d
+Ｅ	wide e
+Ｆ	wide f
+Ｇ	wide g
+Ｈ	wide h
+Ｉ	wide i
+Ｊ	wide j
+Ｋ	wide k
+Ｌ	wide l
+Ｍ	wide m
+Ｎ	wide n
+Ｏ	wide o
+Ｐ	wide p
+Ｑ	wide q
+Ｒ	wide r
+Ｓ	wide s
+Ｔ	wide t
+Ｕ	wide u
+Ｖ	wide v
+Ｗ	wide w
+Ｘ	wide x
+Ｙ	wide y
+Ｚ	wide z
+０	wide 0
+１	wide 1
+２	wide 2
+３	wide 3
+４	wide 4
+５	wide 5
+６	wide 6
+７	wide 7
+８	wide 8
+９	wide 9
+．	wide .
+，	wide ,
+（	wide (
+）	wide )
+？	wide ?
+！	wide !
+＇	wide '
+　	wide space
+
+🗺	World Map
+🏔	Snow-Capped Mountain
+⛰	Mountain
+🗻	Mount Fuji
+🏕	Camping
+🏖	Beach With Umbrella
+🏜	Desert
+🏝	Desert Island
+🏞	National Park
+🏟	Stadium
+🏛	Classical Building
+🏗	Building Construction
+🏘	House
+🏙	Cityscape
+🏚	Derelict House
+⛩	Shinto Shrine
+⏱	Stopwatch
+⏲	Timer Clock
+🕰	Mantelpiece Clock
+🌡	Thermometer
+☀	Sun
+☁	Cloud
+⛈	Cloud With Lightning and Rain
+🌤	Sun Behind Small Cloud
+🌥	Sun Behind Large Cloud
+🌦	Sun Behind Rain Cloud
+🌧	Cloud With Rain
+🌨	Cloud With Snow
+🌩	Cloud With Lightning
+🌪	Tornado
+🌫	Fog
+🌬	Wind Face
+☂	Umbrella
+⛱	Umbrella on Ground
+❄	Snowflake
+☃	Snowman
+☄	Comet
+🎗	Reminder Ribbon
+🎟	Admission Tickets
+🎖	Military Medal
+♠	Spade Suit
+♥	Heart Suit
+♦	Diamond Suit
+♣	Club Suit
+☢	Radioactive
+☣	Biohazard
+⬆	Up Arrow
+↗	Up-Right Arrow
+➡	Right Arrow
+↘	Down-Right Arrow
+⬇	Down Arrow
+↙	Down-Left Arrow
+⬅	Left Arrow
+↖	Up-Left Arrow
+↕	Up-Down Arrow
+↔	Left-Right Arrow
+↩	Right Arrow Curving Left
+↪	Left Arrow Curving Right
+⤴	Right Arrow Curving Up
+⤵	Right Arrow Curving Down
+⚛	Atom Symbol
+🕉	Om
+✡	Star of David
+☸	Wheel of Dharma
+☯	Yin Yang
+✝	Latin Cross
+☦	Orthodox Cross
+☪	Star and Crescent
+☮	Peace Symbol
+▶	Play Button
+⏭	Next Track Button
+⏯	Play or Pause Button
+◀	Reverse Button
+⏮	Last Track Button
+⏸	Pause Button
+⏹	Stop Button
+⏺	Record Button
+⏏	Eject Button
+♀	Female Sign
+♂	Male Sign
+⚧	Transgender sign
+⚕	Medical Symbol
+♻	Recycling Symbol
+⚜	Fleur-De-Lis
+☑	Ballot Box With Check
+✔	Heavy Check Mark
+✖	Heavy Multiplication X
+〽	Part Alternation Mark
+✳	Eight-Spoked Asterisk
+✴	Eight-Pointed Star
+❇	Sparkle
+‼	Double Exclamation Mark
+⁉	Exclamation Question Mark
+〰	Wavy Dash
+©	Copyright
+®	Registered
+™	Trade Mark
+​	Zero Width Space zws
