@@ -16,7 +16,7 @@ Add apps and their PPA :
 - [x] tty
 - [x] sway
 - [x] swaync
-- [x] wofi
+- [x] rofi
 - [x] foot
 - [x] gtk theme
 

@@ -19,7 +19,7 @@ A desktop environment with:
 - [swaylock](https://github.com/swaywm/swaylock#swaylock), a lock screen for sway
 - [swaync](https://github.com/ErikReider/SwayNotificationCenter#readme) for notifications
 - [waybar](https://github.com/Alexays/Waybar#waybar--) for a "taskbar"
-- [wofi](https://hg.sr.ht/~scoopta/wofi/) for launching apps
+- [rofi](https://github.com/in0ni/rofi-wayland) for launching apps
 
 Wallpapers from [Simon Stalhenag](http://www.simonstalenhag.se/)
 
