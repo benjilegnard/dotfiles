@@ -196,6 +196,21 @@
     - .zshrc
     - .bashrc
 
+- name: Other shell config
+  ansible.builtin.blockinfile:
+    path: /home/{{ user }}/{{ item }}
+    marker: "# ENV VARS {mark}"
+    block: |
+      export EDITOR="nvim"
+      export MANPAGER="nvim +Man!"
+      export CHROME_EXECUTABLE="chromium"
+      # vi mode
+      set -o vi
+    create: true
+  loop:
+    - .zshrc
+    - .bashrc
+
 # w3m
 - name: Ensure w3m config directory exists
   ansible.builtin.file:
