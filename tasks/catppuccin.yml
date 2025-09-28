@@ -150,14 +150,20 @@
 # 
 - name: Ensure tmux plugins directory exists
   ansible.builtin.file:
-    path: /home/{{ user }}/.config/tmux/plugins/catppuccin
+    path: /home/{{ user }}/.config/tmux/plugins
     recurse: true
     state: directory
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
 
+- name: Ensure cattpuccin directory exists
+  ansible.builtin.stat:
+    path: /home/{{ user }}/.config/tmux/plugins/catppuccin
+  register: catppuccin_tmux_plugin
+
 - name: Clone catppuccin/tmux
+  when: catppuccin_tmux_plugin is undefined
   ansible.builtin.git:
     repo: https://github.com/catppuccin/tmux.git
     version: v2.1.2
