@@ -1,0 +1,35 @@
+# blgt — Catppuccin Mocha theme
+# Background: mantle -> base gradient
+# Centered 150x150 PNG (logo.png)
+# Docs: uses Window.SetBackgroundTopColor/BottomColor, Window.GetWidth/Height, Sprite.SetX/SetY
+
+Window.SetBackgroundTopColor (0.0941, 0.0941, 0.1451);
+Window.SetBackgroundBottomColor (0.1176, 0.1176, 0.1804);
+
+# Load logo and ensure it's 150x150
+logo_image = Image("logo.png");
+logo_image = logo_image.Scale(150, 150);
+logo_sprite = Sprite(logo_image);
+logo_sprite.SetZ(0);
+
+# Track last known window size
+last_w = -1;
+last_h = -1;
+
+fun recenter ()
+{
+  w = Window.GetWidth();
+  h = Window.GetHeight();
+
+  if (w != last_w || h != last_h) {
+    logo_sprite.SetX (w / 2 - logo_sprite.GetImage().GetWidth()  / 2);
+    logo_sprite.SetY (h / 2 - logo_sprite.GetImage().GetHeight() / 2);
+    last_w = w;
+    last_h = h;
+  }
+}
+
+# Center immediately, then keep it centered as resolution changes
+recenter();
+Plymouth.SetRefreshFunction(recenter);
+

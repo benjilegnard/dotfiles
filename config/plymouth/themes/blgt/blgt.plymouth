@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=blgt
+Description=Catppuccin Mocha centered logo (150x150)
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/blgt
+ScriptFile=/usr/share/plymouth/themes/blgt/blgt.script

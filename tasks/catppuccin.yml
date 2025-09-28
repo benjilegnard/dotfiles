@@ -101,13 +101,13 @@
   when: grub_tty_check.found is defined and grub_tty_check.found == 0
 
 # FIXME; this does not work when config exists
-- name: Configure tty theme in CRUB_CMDLINE_LINUX options
+- name: Configure tty theme in GRUB_CMDLINE_LINUX options
   become: true
   ansible.builtin.lineinfile:
     dest: /etc/default/grub
     backrefs: true
     regexp: "^(GRUB_CMDLINE_LINUX=\")(.*\")$"
-    line: '\1 {{ tty_theme.stdout }}\2'
+    line: '\1{{ tty_theme.stdout }}\2'
   when: grub_tty_check.found is defined and grub_tty_check.found == 0 and grub_install_check.stat.exists
 
 - name: Update grub if tty config was added
@@ -116,6 +116,38 @@
     cmd: grub-mkconfig -o /boot/grub/grub.cfg
   when: grub_tty_check.found is defined and grub_tty_check.found == 0 and grub_install_check.stat.exists
 
+# Plymouth
+- name: Activate splash screen in GRUB_CMDLINE_LINUX_DEFAULT options
+  become: true
+  ansible.builtin.lineinfile:
+    dest: /etc/default/grub
+    backrefs: true
+    regexp: "^(GRUB_CMDLINE_LINUX_DEFAULT=\")(.*\")$"
+    line: '\1quiet splash"'
+
+- name: Ensure plymouth theme folder exists
+  become: true
+  ansible.builtin.file:
+    path: /usr/share/plymouth/themes/blgt
+    recurse: true
+    state: directory
+
+- name: Copy plymouth theme files
+  become: true
+  ansible.builtin.copy:
+    src: "./config/plymouth/themes/blgt/{{ item }}"
+    dest: "/usr/share/plymouth/themes/blgt/{{ item }}"
+  loop:
+    - blgt.plymouth
+    - blgt.script
+    - logo.png
+
+- name: Update alternatives for plymouth theme
+  become: true
+  ansible.builtin.shell: >
+    update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/blgt/blgt.plymouth 100
+    update-alternatives --set default.plymouth /usr/share/plymouth/themes/blgt/blgt.plymouth
+    update-initramfs -u
 #
 # Waybar https://github.com/catppuccin/waybar
 #
