@@ -16,7 +16,6 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 set $browser firefox
-set $ide code
 set $emoji_picker ~/.config/wofi/wofi-emoji
 set $unicode_picker ~/.config/wofi/wofi-unicode
 
@@ -124,9 +123,6 @@ input type:touchpad {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-
-    # Start VSCode
-    bindsym $mod+c exec $ide
 
     # Start firefox
     bindsym $mod+i exec $browser
