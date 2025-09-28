@@ -1,4 +1,9 @@
-# Benji Le Gnard's dot files
+<div align="center">
+<img src="./blg-catppuccin-logo.webp" style="width: 100px; height: 100px;" alt="a duck silouhette on a rainbow background"/>
+
+# Benji Le Gnard's<br/> d&nbsp;&nbsp;o&nbsp;&nbsp;t&nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;&nbsp;i&nbsp;&nbsp;l&nbsp;&nbsp;e&nbsp;&nbsp;s
+
+</div>
 
 This repository holds my dotfiles configuration and ansible playbook config to instantiate a new linux dev machine very quickly.
 
