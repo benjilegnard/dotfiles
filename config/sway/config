@@ -33,8 +33,7 @@ set $menu rofi -modi drun -show drun | xargs swaymsg exec --
 # use rofi for window switching
 set $window_tabber rofi -modi window -show window
 set $emoji_picker rofi -modi emoji -show emoji
-
-set $unicode_picker ~/.config/wofi/wofi-unicode
+set $unicode_picker charpick -t
 
 include /etc/sway/config-vars.d/*
 # Cursor config
@@ -122,10 +121,14 @@ input type:touchpad {
     # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
+    # Start the main launcher
     bindsym $mod+d exec $menu
-    #bindsym $mod+z exec $rofi_emoji
+    # Windows switcher
     bindsym $mod+w exec $window_tabber
+    # Emoji picker
+    bindsym $mod+z exec $emoji_picker
+    # Unicode picker
+    bindsym $mod+u exec $unicode_picker
 
     # Start firefox
     bindsym $mod+i exec $browser
@@ -145,10 +148,6 @@ input type:touchpad {
     bindsym --to-code $mod+Print exec 'grimshot copy area'
     # Lock the screen
     bindsym $mod+Shift+o exec 'swaylock -f -c 000000'
-    # Emoji picker
-    bindsym $mod+z exec $emoji_picker
-    # Unicode picker
-    bindsym $mod+u exec $unicode_picker
 
 #
 # Moving around:
