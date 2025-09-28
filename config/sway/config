@@ -103,7 +103,7 @@ exec swayidle -w \
 input * {
     xkb_layout "us,fr"
     xkb_variant "intl,azerty"
-    xkb_options "grp:win_space_toggle"
+    xkb_options "grp:win_space_toggle,caps:escape"
 }
 
 # touchpad
