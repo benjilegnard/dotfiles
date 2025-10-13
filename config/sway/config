@@ -115,8 +115,11 @@ input type:touchpad {
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
+    # Start a terminal with tmux session
+    bindsym $mod+Return exec $term tmux
+
+    # Start a normal terminal
+    bindsym $mod+Shift+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
