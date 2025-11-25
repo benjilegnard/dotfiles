@@ -31,16 +31,16 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
-        //     "format": "{name}: {icon}",
+        // "format": "{name}: {icon}",
         "format-icons": {
             //         "1": "",
             //         "2": "",
             //         "3": "",
             //         "4": "",
             //         "5": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
+            "urgent": " ",
+            "focused": " ",
+            "default": " "
         }
     },
     "keyboard-state": {
@@ -53,7 +53,7 @@
         }
     },
     "sway/language": {
-        "format": "{} "
+        "format": " {}   "
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -62,8 +62,8 @@
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": [
-            "",
-            ""
+            " ",
+            " "
         ],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
@@ -71,8 +71,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         }
     },
     "tray": {
@@ -81,15 +81,15 @@
     },
     "clock": {
         "tooltip-format": "calendar",
-        "format-alt": "{:%Y-%m-%d} ",
-        "format": "{:%H:%M} "
+        "format-alt": "{:%Y-%m-%d}  ",
+        "format": "{:%H:%M}  "
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}%  ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}%   "
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -124,18 +124,18 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{capacity}% {icon} ",
+        "format-charging": "{capacity}%  ",
+        "format-plugged": "{capacity}%  ",
+        "format-alt": "{time} {icon} ",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
         ]
     },
     "battery#bat2": {
@@ -143,12 +143,12 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-wifi": "({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr}  ",
+        "tooltip-format": "{ifname} via {gwaddr}  ",
         "tooltip-format-wifi": "{essid}  {ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⚠ ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
@@ -158,18 +158,18 @@
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-source-muted": " ",
         "format-icons": {
-            "headphone": "",
+            "headphone": " ",
             "hands-free": "",
             "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
             "default": [
                 "",
-                "",
-                ""
+                " ",
+                " "
             ]
         },
         "on-click": "pavucontrol"
@@ -179,7 +179,7 @@
         "return-type": "string",
         "max-length": 40,
         "format-icons": {
-            "spotify": "",
+            "spotify": " ",
             "default": "🎜"
         },
         "interval": 5,
