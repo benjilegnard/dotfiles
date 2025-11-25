@@ -169,7 +169,6 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: @crust;
     color: @yellow;
 }
 
@@ -221,13 +220,13 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: @crust;
+    background-color: @base;
     color: @text;
 }
 
 #idle_inhibitor.activated {
     background-color: @text;
-    color: @crust;
+    color: @base;
 }
 
 #mpd {
