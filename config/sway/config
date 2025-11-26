@@ -16,8 +16,6 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 set $browser firefox
-set $emoji_picker ~/.config/wofi/wofi-emoji
-set $unicode_picker ~/.config/wofi/wofi-unicode
 
 ### Launchers
 
@@ -31,9 +29,11 @@ exec blueman-applet
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# set $menu rofi -show drun | xargs swaymsg exec --
-set $menu wofi --show drun -I | xargs swaymsg exec --
+set $menu rofi -modi drun -show drun | xargs swaymsg exec --
+# use rofi for window switching
+set $window_tabber rofi -modi window -show window
+set $emoji_picker rofi -modi emoji -show emoji
+set $unicode_picker charpick -t
 
 include /etc/sway/config-vars.d/*
 # Cursor config
@@ -126,6 +126,10 @@ input type:touchpad {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    # Rofi launchers
+    bindsym $mod+z exec $emoji_picker
+    bindsym $mod+u exec $unicode_picker
+    bindsym $mod+w exec $window_tabber
 
     # Start firefox
     bindsym $mod+i exec $browser
@@ -145,10 +149,6 @@ input type:touchpad {
     bindsym --to-code $mod+Print exec 'grimshot copy area'
     # Lock the screen
     bindsym $mod+Shift+o exec 'swaylock -f -c 000000'
-    # Emoji picker
-    bindsym $mod+z exec $emoji_picker
-    # Unicode picker
-    bindsym $mod+u exec $unicode_picker
 
 #
 # Moving around:
@@ -212,7 +212,7 @@ input type:touchpad {
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    bindsym $mod+t layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
