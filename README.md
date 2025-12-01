@@ -29,11 +29,11 @@ Everything is themed to the [catppuccin color palette](https://catppuccin.com/)
 
 ## Screenshots
 
-__Sway, waybar, foot with tmux and neovim__:
+__Sway, waybar, kitty terminal with tmux and neovim__:
 
 ![Screen shot of a linux OS running sway, waybar, foot with tmux and neovim](./docs/screenshot-1.png)
 
-__Wofi__:
+__Rofi__:
 
 ![Screen shot of a linux OS running wofi over sway](./docs/screenshot-2.png)
 
