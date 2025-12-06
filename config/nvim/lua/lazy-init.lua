@@ -14,6 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	spec = "benjilegnard.lazy",
+	spec = "plugins", -- ~/.config/nvim/lua/plugins/ folder
 	change_detection = { notify = false },
 })
