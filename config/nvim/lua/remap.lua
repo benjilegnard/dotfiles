@@ -1,7 +1,6 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("i", "jj", "<Esc>")
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -16,17 +15,17 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<leader>lt", function()
   vim.cmd("terminal")
   vim.cmd("startinsert")
-end, { desc = "[L]aunch [T]erminal" })
+end, { desc = "Launch Terminal" })
 
 vim.keymap.set("n", "<leader>lg", function()
   vim.cmd("terminal lazygit")
   vim.cmd("startinsert")
-end, { desc = "[L]aunch lazy[G]it in terminal" })
+end, { desc = "Launch lazygit in terminal" })
 
 vim.keymap.set("n", "<leader>ld", function()
   vim.cmd("terminal lazydocker")
   vim.cmd("startinsert")
-end, { desc = "[L]aunch lazy[D]ocker in terminal" })
+end, { desc = "Launch lazydocker in terminal" })
 
 vim.keymap.set("n", "<leader>ls", function()
   vim.cmd("terminal rainfrog")
