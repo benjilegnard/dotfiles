@@ -12,6 +12,13 @@ return {
     "lawrence-laz/neotest-zig",
     "rouge8/neotest-rust",
   },
+  keys = {
+    { "<space>rt", function() require("neotest").run.run() end,                     desc = "Run nearest test" },
+    { "<space>ra", function() require("neotest").run.run(vim.fn.expand("%")) end,   desc = "Run test in current file" },
+    { "<space>rd", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Run and debug nearest test" },
+    { "<space>rs", function() require("neotest").run.stop() end,                    desc = "Stop nearest test run" },
+    { "<space>ro", function() require("neotest").output.open() end,                 desc = "Open test output" },
+  },
   config = function()
     require("neotest").setup({
       adapters = {
@@ -30,30 +37,5 @@ return {
         }),
       },
     })
-
-    local runNearest = function()
-      require("neotest").run.run()
-    end
-    vim.keymap.set("n", "<space>rt", runNearest, { desc = "Run nearest test" })
-
-    local runCurrent = function()
-      require("neotest").run.run(vim.fn.expand("%"))
-    end
-    vim.keymap.set("n", "<space>ra", runCurrent, { desc = "Run test in current file" })
-
-    local runDebug = function()
-      require("neotest").run.run({ strategy = "dap" })
-    end
-    vim.keymap.set("n", "<space>rd", runDebug, { desc = "Run and debug nearest test" })
-
-    local runStopTest = function()
-      require("neotest").run.stop()
-    end
-    vim.keymap.set("n", "<space>rs", runStopTest, { desc = "Stop nearest test run" })
-
-    local runOutput = function()
-      require("neotest").output.open()
-    end
-    vim.keymap.set("n", "<space>ro", runOutput, { desc = "Open test output" })
   end,
 }
