@@ -60,6 +60,27 @@ return {
       },
       -- automatic_enable = true is the default; it calls vim.lsp.enable() for all installed servers
     })
+    local compare = require("cmp.config.compare")
+
+    -- Deprioritize completions from test libraries
+    local deprioritize_test_imports = function(entry1, entry2)
+      local test_libs = { vitest = true, jest = true, mocha = true, chai = true }
+      local item1 = entry1:get_completion_item()
+      local item2 = entry2:get_completion_item()
+      local desc1 = (item1.labelDetails and item1.labelDetails.description) or item1.detail or ""
+      local desc2 = (item2.labelDetails and item2.labelDetails.description) or item2.detail or ""
+      local is_test1 = false
+      local is_test2 = false
+      for lib in pairs(test_libs) do
+        if desc1:find(lib, 1, true) then is_test1 = true end
+        if desc2:find(lib, 1, true) then is_test2 = true end
+      end
+      if is_test1 ~= is_test2 then
+        return not is_test1
+      end
+      return nil
+    end
+
     cmp.setup({
       --[[
             snippet = {
@@ -68,6 +89,19 @@ return {
                 end,
             },
         ]]
+      sorting = {
+        comparators = {
+          deprioritize_test_imports,
+          compare.offset,
+          compare.exact,
+          compare.score,
+          compare.recently_used,
+          compare.locality,
+          compare.kind,
+          compare.length,
+          compare.order,
+        },
+      },
       mapping = cmp.mapping.preset.insert({
         ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
         ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
