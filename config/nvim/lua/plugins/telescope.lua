@@ -36,6 +36,9 @@ return {
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, {
       desc = "Help tags",
     })
+    vim.keymap.set("n", "<leader>fr", builtin.resume, {
+      desc = "Resume last search",
+    })
     require("telescope").load_extension("ui-select")
   end,
 }
