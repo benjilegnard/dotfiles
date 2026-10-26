@@ -1,11 +1,12 @@
 #!/bin/bash
 # Pick a wallpaper with rofi and display it with awww.
 # Usage:
-#   wallpaper.sh            open rofi, empty selection = random wallpaper
+#   wallpaper.sh            open rofi, first entry sets a random wallpaper
 #   wallpaper.sh --random   set a random wallpaper without opening rofi
 
 readonly WALLPAPERS_DIR="$HOME/Images/SimonStalenhag"
 readonly AWWW="$HOME/.local/bin/awww"
+readonly RANDOM_ENTRY="󰒝  Random"
 
 export AWWW_TRANSITION="${AWWW_TRANSITION:-any}"
 export AWWW_TRANSITION_FPS="${AWWW_TRANSITION_FPS:-60}"
@@ -33,15 +34,16 @@ wait_daemon() {
 if [[ "$1" == "--random" ]]; then
     selection="$(random_wallpaper)"
 else
-    # show each file name with its thumbnail as icon
-    selection="$(list_wallpapers \
-        | while read -r file; do printf '%s\0icon\x1f%s\n' "$file" "$WALLPAPERS_DIR/$file"; done \
-        | rofi -dmenu -i -show-icons -p "󰸉  Wallpaper")"
-    # nothing selected (or unknown text typed): fallback to a random one
-    [[ -f "$WALLPAPERS_DIR/$selection" ]] || selection="$(random_wallpaper)"
+    # first entry is "random", then each file name with its thumbnail as icon
+    selection="$( {
+        echo "$RANDOM_ENTRY"
+        list_wallpapers | while read -r file; do printf '%s\0icon\x1f%s\n' "$file" "$WALLPAPERS_DIR/$file"; done
+    } | rofi -dmenu -i -no-custom -show-icons -p "󰸉  Wallpaper")"
+    [[ "$selection" == "$RANDOM_ENTRY" ]] && selection="$(random_wallpaper)"
 fi
 
-[[ -z "$selection" ]] && exit 1
+# rofi dismissed: do nothing
+[[ -f "$WALLPAPERS_DIR/$selection" ]] || exit 0
 
 wait_daemon
 "$AWWW" img "$WALLPAPERS_DIR/$selection"
