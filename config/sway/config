@@ -33,6 +33,8 @@ set $unicode_picker charpick -t
 
 set $paste_history cliphist list | rofi -dmenu -p " 󰅍 Clipboard History" | cliphist decode | wl-copy
 
+set $power_menu ~/.config/rofi/powermenu.sh
+
 include /etc/sway/config-vars.d/*
 # Cursor config
 seat seat0 xcursor_theme Qogir 24
@@ -138,6 +140,8 @@ input type:touchpad {
     bindsym $mod+c exec $paste_history
     # Wallpaper picker
     bindsym $mod+g exec $wallpaper_picker
+    # Power menu
+    bindsym $mod+q exec $power_menu
     # Start firefox
     bindsym $mod+i exec $browser
     # Drag floating windows by holding down $mod and left mouse button.

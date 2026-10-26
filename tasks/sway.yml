@@ -57,11 +57,14 @@
 
 - name: Copy configuration files for rofi
   ansible.builtin.copy:
-    src: ./config/rofi/config.rasi
+    src: ./config/rofi/{{ item }}
     dest: /home/{{ user }}/.config/rofi/
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "755"
+  loop:
+    - config.rasi
+    - powermenu.sh
 
 - name: Copy theme file for rofi
   ansible.builtin.copy:
