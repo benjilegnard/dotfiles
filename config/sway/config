@@ -24,9 +24,7 @@ exec nm-applet --indicator
 exec blueman-applet
 
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu rofi -modi drun -show drun | xargs swaymsg exec --
+set $menu rofi -modi drun -show drun
 # use rofi for window switching
 set $window_tabber rofi -modi window -show window
 set $emoji_picker rofi -modi emoji -show emoji
@@ -42,7 +40,7 @@ seat seat0 xcursor_theme Qogir 24
 # Import gsettings
 exec_always ~/.config/sway/import-gsettings
 # Setup XDG for screen sharing
-exec_always ~/.config/sway/init-xdg
+exec ~/.config/sway/init-xdg
 # Start gnome keyring daemon
 exec_always ~/.config/sway/start-keyring
 
