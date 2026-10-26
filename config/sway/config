@@ -19,9 +19,6 @@ set $browser firefox
 
 ### Launchers
 
-# copy-paste manager
-exec wl-paste -t text --watch clipman store --no-persist
-
 # launch taskbar indicators
 exec nm-applet --indicator
 exec blueman-applet
@@ -33,7 +30,10 @@ set $menu rofi -modi drun -show drun | xargs swaymsg exec --
 # use rofi for window switching
 set $window_tabber rofi -modi window -show window
 set $emoji_picker rofi -modi emoji -show emoji
+
 set $unicode_picker charpick -t
+
+set $paste_history cliphist list | rofi -dmenu -p " 󰅍 Clipboard History" | cliphist decode | wl-copy
 
 include /etc/sway/config-vars.d/*
 # Cursor config
@@ -48,7 +48,8 @@ exec_always ~/.config/sway/start-keyring
 
 # Notification Daemon
 exec swaync
-
+# Copy/Paste history watcher
+exec wl-paste --watch cliphist store --no-persist
 # Toggle control center
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
@@ -135,8 +136,10 @@ input type:touchpad {
     bindsym $mod+u exec $unicode_picker
     # Windows switcher
     bindsym $mod+w exec $window_tabber
+    # Copy paste history
+    bindsym $mod+c exec $paste_history
     # Wallpaper picker
-    bindsym $mod+b exec $wallpaper_picker
+    bindsym $mod+g exec $wallpaper_picker
     # Start firefox
     bindsym $mod+i exec $browser
     # Drag floating windows by holding down $mod and left mouse button.

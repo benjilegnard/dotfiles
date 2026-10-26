@@ -23,6 +23,7 @@
       - wf-recorder
       - wireplumber
       - wl-clipboard
+      - cliphist
       - wtype
       - xdg-desktop-portal-wlr
       - zenity
@@ -160,7 +161,6 @@
   loop:
     - .zshrc
     - .bashrc
-
 #- name: Autostart sway on tty1 login
 #  ansible.builtin.copy:
 #    content: |
