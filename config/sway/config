@@ -58,9 +58,12 @@ bindsym $mod+Shift+n exec swaync-client -t -sw
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 
-# Random wallpaper
-set $wallpapers_path "$HOME"/Images/SimonStalenhag
-output * bg $(find "$wallpapers_path" -type f | shuf -n 1) fill
+# Wallpaper daemon (awww), only start it if not already running
+exec_always pgrep -x awww-daemon >/dev/null || ~/.local/bin/awww-daemon
+# Random wallpaper at startup
+exec ~/.config/awww/wallpaper.sh --random
+# Wallpaper picker
+set $wallpaper_picker ~/.config/awww/wallpaper.sh
 
 #
 # Example configuration:
@@ -126,11 +129,14 @@ input type:touchpad {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    # Rofi launchers
+    # Emoji picker
     bindsym $mod+z exec $emoji_picker
+    # Unicode picker
     bindsym $mod+u exec $unicode_picker
+    # Windows switcher
     bindsym $mod+w exec $window_tabber
-
+    # Wallpaper picker
+    bindsym $mod+b exec $wallpaper_picker
     # Start firefox
     bindsym $mod+i exec $browser
     # Drag floating windows by holding down $mod and left mouse button.

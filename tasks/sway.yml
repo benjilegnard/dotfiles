@@ -44,6 +44,15 @@
     - waybar
     - rofi
     - kitty
+    - awww
+
+- name: Copy wallpaper picker script for awww
+  ansible.builtin.copy:
+    src: ./config/awww/wallpaper.sh
+    dest: /home/{{ user }}/.config/awww/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "755"
 
 - name: Copy configuration files for rofi
   ansible.builtin.copy:
